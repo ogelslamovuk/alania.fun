@@ -32,6 +32,14 @@
 
 ## Фото направлений
 
+- `mamison-valley.jpg`, `.webp` — долина у Тибских минеральных источников, Мамисонское направление. Автор Rost.galis, [оригинал](https://commons.wikimedia.org/wiki/File:Окрестности_источника.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Это вид долины по пути, не фотография новых подъёмников курорта.
+- `tsey-cableway.jpg`, `.webp` — канатная дорога в Цее. Автор Denis Dolgopolov, [оригинал](https://commons.wikimedia.org/wiki/File:Канатная_дорога_в_Цее.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- `karmadon-walls.jpg`, `.webp` — скальные стены Кармадонского ущелья. Автор Александр Байдуков, [оригинал](https://commons.wikimedia.org/wiki/File:Karmadon._The_walls_of_the_gorge.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Снимок показывает окружение поездки к месту памяти, не сам мемориал.
+
+Эти три пары уменьшены и при необходимости незначительно кадрированы до 960×640, перекодированы без изменения цветов; метаданные удалены. Производные — CC BY-SA 4.0. В карточке «Лавочка счастья» используется уже лицензированный `fiagdon-summer`: панорама Куртатинского ущелья из Цмити, а не фотография самой лавочки. Alt сохраняет фактическое место; найденные свободные снимки одноимённых объектов в Туве и Домбае не использованы.
+
+Названия и состав новых направлений сверены с [маршрутом «Два ущелья Северной Осетии»](https://kavkaz.travel/en/touristRoutes/1) и [путеводителем по Мамисону и Цею](https://kavkaz.travel/articles/129). Кармадон и судьба съёмочной группы — [ТАСС](https://tass.ru/encyclopedia/person/bodrov-sergey-sergeevich). Подъезд к лавочке, работа канаток и состав остановок не гарантируются независимо от погоды; еда и билеты оплачиваются отдельно.
+
 - `three-gorges.jpg`, `.webp` — зимняя панорама Фиагдона и башен Куртатинского ущелья, одной из частей маршрута «Три ущелья». Автор Alex Svirkin. [Оригинал Fiagdon2.jpg](https://commons.wikimedia.org/wiki/File:Fiagdon2.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Уменьшено и перекодировано, метаданные удалены. Производные — та же лицензия.
 - `thermal-bathers.jpg`, `.webp` — люди в парящей воде, Blue Lagoon, Исландия. Автор Jeff Sheldon. [Страница снимка и подтверждение CC0 на StockSnap](https://stocksnap.io/photo/hotspring-water-CFEBB095D8), [оригинал на Unsplash](https://unsplash.com/photos/jTeQavJjBDs), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Фото уменьшено до 1200×800 и кадрировано снизу через CDN Unsplash, сохранено локально в JPEG/WebP. Это атмосферный снимок термального отдыха, не фотография Бирагзанга; фактическая страна указана в alt и здесь. По просьбе владельца видимая подпись о стране удалена с карточки. Старые `biragzang-thermal.svg`, `.jpg`, `.webp` — ранее использовавшаяся оригинальная иллюстрация, больше не отображаются на сайте.
 

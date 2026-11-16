@@ -355,7 +355,7 @@ function App() {
           </article>
           <div className="route-choices-heading">
             <h3>А можно по-другому</h3>
-            <span>Ещё 5 направлений</span>
+            <span>Ещё {trips.length - 1} направлений</span>
           </div>
           <div className="route-choices">
             {trips.slice(1).map((trip) => (
