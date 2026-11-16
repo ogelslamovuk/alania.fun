@@ -135,6 +135,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 30px;
+  margin-left: auto;
 }
 .nav a {
   text-decoration: none;
@@ -148,11 +149,25 @@ a:hover {
   color: #476e54;
 }
 .nav .nav__contact {
-  border: 1px solid #bac8bc;
-  border-radius: 7px;
-  padding: 10px 17px;
-  margin-left: 9px;
   font-weight: 600;
+}
+.header-contactbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+}
+.header-messenger {
+  display: none;
 }
 .menu-toggle {
   display: none;
@@ -189,6 +204,14 @@ a:hover {
 }
 .button--green:hover {
   background: #163c30;
+}
+.button--outline {
+  border: 1px solid #9bb8a7;
+  color: #fff;
+  background: transparent;
+}
+.button--outline:hover {
+  background: #285445;
 }
 .button:disabled {
   cursor: wait;
@@ -650,19 +673,28 @@ summary::-webkit-details-marker {
   color: #d3dfd6;
   max-width: 450px;
 }
-.contact-links {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-.contact-links a {
+.contacts__phone {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 12px;
+  margin-top: 23px;
+  min-height: 44px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
   text-decoration: none;
-  font-size: 17px;
-  min-height: 30px;
+}
+.contacts__phone svg {
+  flex-shrink: 0;
+}
+.contact-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.contact-buttons .button {
+  gap: 20px;
 }
 .booking-steps {
   margin: 38px 0 0;
@@ -783,6 +815,9 @@ summary::-webkit-details-marker {
 .mobile-contact {
   display: none;
 }
+.mobile-contact[hidden] {
+  display: none;
+}
 
 @media (min-width: 1600px) {
   .hero {
@@ -798,6 +833,9 @@ summary::-webkit-details-marker {
   }
   .nav .nav__contact {
     margin-left: 0;
+  }
+  .header-phone svg {
+    display: none;
   }
   .hero__content {
     width: calc(100% - 64px);
@@ -833,15 +871,19 @@ summary::-webkit-details-marker {
 @media (max-width: 850px) {
   .header {
     min-height: 80px;
+    gap: 20px;
   }
   .nav {
-    gap: 16px;
+    gap: 14px;
   }
   .nav a {
     font-size: 15px;
   }
   .nav .nav__contact {
-    padding-inline: 12px;
+    padding-inline: 0;
+  }
+  .header-phone {
+    font-size: 16px;
   }
   .hero {
     min-height: 570px;
@@ -972,8 +1014,15 @@ summary::-webkit-details-marker {
   .contacts__intro {
     font-size: 17px;
   }
-  .contact-links {
-    gap: 12px;
+  .contacts__phone {
+    font-size: 27px;
+    gap: 8px;
+  }
+  .contacts__phone svg {
+    width: 20px;
+  }
+  .contact-buttons {
+    gap: 10px;
   }
   .contacts__copy .button {
     font-size: 16px;
@@ -1000,6 +1049,35 @@ summary::-webkit-details-marker {
   }
   .header {
     min-height: 77px;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    padding-block: 13px 10px;
+  }
+  .header-contactbar {
+    width: 100%;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 11px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+  .header-phone {
+    flex: 1;
+    font-size: 16px;
+  }
+  .header-messenger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px;
+    border: 1px solid #c9d7cb;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--paper);
   }
   .brand__name {
     font-size: 28px;
@@ -1023,7 +1101,7 @@ summary::-webkit-details-marker {
     position: absolute;
     left: 0;
     right: 0;
-    top: 70px;
+    top: 100%;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -1255,13 +1333,20 @@ summary::-webkit-details-marker {
   }
   .contacts__intro {
     font-size: 18px;
-    margin-top: 18px;
+    margin-top: 15px;
+  }
+  .contacts__phone {
+    margin-top: 20px;
+    font-size: 30px;
+    gap: 10px;
   }
   .contacts__copy .button {
     font-size: 18px;
   }
-  .contact-links {
-    gap: 22px;
+  .contact-buttons .button {
+    flex: 1;
+    padding-inline: 16px;
+    gap: 14px;
   }
   .booking-steps {
     margin-top: 29px;
@@ -1302,30 +1387,35 @@ summary::-webkit-details-marker {
     font-size: 12px;
   }
   .mobile-contact {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     position: fixed;
     z-index: 10;
-    bottom: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
     left: 16px;
     right: 16px;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: 52px;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: #1e4e3b;
-    color: #fff;
-    text-decoration: none;
+    gap: 5px;
+    padding: 5px;
+    border: 1px solid #cbd8cd;
+    border-radius: 10px;
+    background: #fff;
+    color: #214d3f;
     font-weight: 600;
     box-shadow: 0 3px 14px #0003;
     font-size: 17px;
   }
-  .mobile-contact svg:last-child {
-    margin-left: auto;
+  .mobile-contact a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    gap: 9px;
+    border-radius: 5px;
+    text-decoration: none;
   }
-  .mobile-contact svg:first-child {
-    margin-right: auto;
+  .mobile-contact a:first-child {
+    background: #214d3f;
+    color: #fff;
   }
 }
 @media (max-width: 390px) {
