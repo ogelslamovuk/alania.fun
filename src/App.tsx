@@ -305,8 +305,8 @@ function App() {
         <section className="local-scenes section wrap" aria-labelledby="local-scenes-title">
           <div className="local-scenes__photos">
             <figure className="local-scenes__beer">
-              <Photo image={localScenes.beer} alt="Осетинское пиво с пеной в деревянной чаше на столе" />
-              <figcaption>Осетинское пиво в деревянной чаше <span className="local-scenes__credit">Фото: <a href="https://sputnik-ossetia.ru/20230119/osetinskoe-pivo-napitok-nartov-doshedshiy-do-nashikh-dney-21004277.html" target="_blank" rel="noopener noreferrer">Наталья Айриян / Sputnik</a></span></figcaption>
+              <Photo image={localScenes.beer} alt="Традиционная резная чаша с осетинским пивом на столе" />
+              <figcaption>Осетинское пиво</figcaption>
             </figure>
             <figure className="local-scenes__food">
               <Photo image={localScenes.food} alt="Осетинские пироги на столе" />
@@ -376,18 +376,18 @@ function App() {
           </div>
           <div className="route-custom">
             <p>
-              <strong>Пока не знаете, что выбрать?</strong> Напишите, сколько у вас дней. Эльбрус поможет с маршрутом, встретит в аэропорту и покажет Осетию за один день или несколько.
+              <strong>Маршрут под ваши планы.</strong> На полдня, на день или на несколько дней. Заберём, покажем интересные места и привезём обратно. Трансферы — по всему Кавказу.
             </p>
             <a
               className="text-link"
               href={whatsappLink(
-                "Эльбрус, здравствуйте! Хочу в Осетию, но пока не выбрал маршрут. Помогите, пожалуйста, спланировать поездку.",
+                "Эльбрус, здравствуйте! Помогите подобрать поездку или трансфер по Кавказу под наши планы. Подскажите маршрут и стоимость.",
               )}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackGoal("click_whatsapp", { placement: "custom-route" })}
             >
-              Помочь с выбором <ArrowUpRight size={18} aria-hidden="true" />
+              Подобрать поездку <ArrowUpRight size={18} aria-hidden="true" />
             </a>
           </div>
         </section>
