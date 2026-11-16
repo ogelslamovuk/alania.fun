@@ -87,7 +87,6 @@ export const trips = [
     format: "Отдельно или после гор",
     image: image("thermal-bathers", 1200, 800),
     imageAlt: "Люди отдыхают в парящей термальной воде в Исландии",
-    imageCaption: "Фото из Исландии",
     note: "Термальные бассейны",
   },
 ];
