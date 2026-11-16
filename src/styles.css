@@ -1243,6 +1243,9 @@ summary::-webkit-details-marker {
 .route-choice { display: grid; grid-template-columns: 148px 1fr; align-items: start; gap: 21px; padding: 24px 0; border-top: 1px solid var(--line); min-width: 0; }
 .route-choice__photo { display: block; height: 180px; border-radius: 7px; overflow: hidden; }
 .route-choice__photo img { width: 100%; height: 100%; object-fit: cover; }
+.route-choice--bodrov-memorial .route-choice__photo img { object-position: right center; }
+.route-choice__credit { font-size: 12px; line-height: 1.35; color: var(--muted); margin-top: 8px; }
+.route-choice__credit a { white-space: normal; overflow-wrap: anywhere; text-underline-offset: 2px; }
 .route-choice__format { font-size: 13px; line-height: 1.25; color: var(--muted); margin-bottom: 6px; }
 .route-choice h3 { font-size: 24px; line-height: 1.1; }
 .route-choice__description { font-size: 15px; line-height: 1.4; color: var(--muted); margin-top: 9px; }

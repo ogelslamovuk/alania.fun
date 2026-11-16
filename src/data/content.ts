@@ -100,8 +100,9 @@ export const trips = [
     title: "Мамисон",
     text: "Горный курорт среди высоких вершин. Зимой — лыжи и снежные склоны, летом — канатка и прогулки с видом на горы.",
     format: "На целый день",
-    image: image("mamison-valley", 960, 640),
-    imageAlt: "Горная долина у Тибских минеральных источников по пути к Мамисону",
+    image: image("mamison-skiers", 960, 640),
+    imageAlt: "Лыжники на кресельном подъёмнике горного курорта Мамисон",
+    photoCredit: { label: "Кавказ.РФ", url: "https://kavkaz.travel/resorts/12/mamison" },
     note: "Курорт и горные виды",
   },
   {
@@ -127,8 +128,9 @@ export const trips = [
     title: "Место памяти Бодрова",
     text: "Мурал Сергею Бодрову и место памяти съёмочной группы в Кармадонском ущелье. Остановка по дороге через Даргавс и Кармадон.",
     format: "Остановка в Кармадоне",
-    image: image("karmadon-walls", 960, 640),
-    imageAlt: "Скальные стены Кармадонского ущелья, где находится место памяти",
+    image: image("bodrov-mural", 960, 616),
+    imageAlt: "Мурал Сергею Бодрову и памятные таблички у тоннеля в Кармадонском ущелье",
+    photoCredit: { label: "Ксения Селезнёва / ДОМОСТРОЙНН.РУ", url: "https://www.domostroynn.ru/novosti/rynok-nedvizhimosti/nizhegorodskiy-zhurnalist-posetil-mesto-gibeli-sergeya-bodrova-pod-lavinoy-v-osetii" },
     note: "Кармадонское ущелье",
   },
 ] as const;
