@@ -21,6 +21,11 @@
 - `midagrabin-summer.jpg`, `.webp` — Зейгалан, Мидаграбинские водопады. Автор Юрочкин Роман. [Источник](https://commons.wikimedia.org/wiki/File:Мидаграбинские_водопады.jpg).
 - `digoria-karaugom.jpg`, `.webp` — Караугомский ледник, Дигория. Автор Alexander Novikov. [Источник](https://commons.wikimedia.org/wiki/File:Karaugom-001.jpg). Фото региона не означает, что автомобильный маршрут проходит прямо к леднику.
 
+## Новые направления
+
+- `three-gorges.jpg`, `.webp` — зимняя панорама Фиагдона и башен Куртатинского ущелья, одной из частей маршрута «Три ущелья». Автор Alex Svirkin. [Оригинал Fiagdon2.jpg](https://commons.wikimedia.org/wiki/File:Fiagdon2.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Уменьшено и перекодировано, метаданные удалены. Производные — та же лицензия.
+- `biragzang-thermal.svg`, `.jpg`, `.webp` — оригинальная иллюстрация бассейна для alania.fun. Это условное изображение, а не фотография комплекса. В карточке есть подпись «Иллюстрация». Чужие изображения бассейнов без подтверждённой лицензии не использованы.
+
 ## Шрифты
 
 - Cormorant Garamond, SIL Open Font License 1.1. Лицензия в `public/fonts/cormorant-garamond-OFL.txt`. [Google Fonts](https://github.com/google/fonts/tree/main/ofl/cormorantgaramond).
