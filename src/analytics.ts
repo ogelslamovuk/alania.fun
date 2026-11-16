@@ -9,7 +9,7 @@ export const YANDEX_METRIKA_ID = 109248707;
 
 type GoalParameters = {
   placement?: "header" | "hero" | "budget" | "featured-route" | "route-list" | "custom-route" | "local-scenes" | "contacts" | "mobile-bar";
-  route?: "three-gorges" | "fiagdon" | "dargavs-karmadon" | "midagrabin" | "digoria" | "biragzang";
+  route?: "three-gorges" | "fiagdon" | "dargavs-karmadon" | "midagrabin" | "digoria" | "biragzang" | "mamison" | "tsey" | "happiness-bench" | "bodrov-memorial";
 };
 
 export function trackGoal(goalName: string, params?: GoalParameters) {
