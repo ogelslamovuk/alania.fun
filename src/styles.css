@@ -391,16 +391,6 @@ a:hover {
   color: #2e453a;
   font-size: 13px;
 }
-.route-card__caption {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 3px 8px;
-  border-radius: 3px;
-  background: #ffffffdd;
-  color: var(--ink);
-  font-size: 12px;
-}
 .route-card__content {
   padding-top: 19px;
 }
