@@ -1,9 +1,9 @@
-# AGENTS.md — project instructions for Codex: co_elbrus landing
+# AGENTS.md — project instructions for Codex: alania.fun landing
 
 ## Project
 
-Repository: https://github.com/ogelslamovuk/co_elbrus
-Local path: D:\JetBrains\co_elbrus
+Repository: https://github.com/ogelslamovuk/alania.fun
+Local path: D:\JetBrains\alania.fun
 Target public URL: https://alania.fun/
 
 This repository is for a single-page landing site for Elbrus: a local driver and personal guide in North Ossetia–Alania.
