@@ -1,4 +1,4 @@
-import { contacts, faq, hero, siteUrl, trips } from "./data/content";
+import { contacts, faq, siteUrl, trips } from "./data/content";
 
 export const structuredData = {
   "@context": "https://schema.org",
@@ -34,7 +34,7 @@ export const structuredData = {
     {
       "@type": "Service",
       "@id": `${siteUrl}#service`,
-      "name": hero.title,
+      "name": "Индивидуальные поездки по Северной Осетии",
       "description": "Индивидуальные поездки по Северной Осетии до 4 гостей. В стоимость входят машина и сопровождение Эльбруса. Еда, входные билеты и канатные дороги оплачиваются отдельно.",
       "areaServed": [
         "Республика Северная Осетия — Алания",

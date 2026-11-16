@@ -8,7 +8,6 @@ import {
   Menu,
   MessageCircle,
   Phone,
-  Play,
   Plus,
   X,
 } from "lucide-react";
@@ -20,6 +19,7 @@ import {
   faqTitle,
   formSuccess,
   hero,
+  localScenes,
   prices,
   reviews,
   trips,
@@ -61,10 +61,12 @@ function WhatsApp({
   children = "Написать в WhatsApp",
   className = "",
   message,
+  placement,
 }: {
   children?: React.ReactNode;
   className?: string;
   message?: string;
+  placement?: Parameters<typeof trackGoal>[1];
 }) {
   return (
     <a
@@ -72,7 +74,7 @@ function WhatsApp({
       href={message ? whatsappLink(message) : contacts.whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => trackGoal("click_whatsapp")}
+      onClick={() => trackGoal("click_whatsapp", placement)}
     >
       <span>{children}</span>
       <ArrowUpRight size={19} aria-hidden="true" />
@@ -216,7 +218,7 @@ function App() {
           <a
             className="header-phone"
             href={contacts.phoneHref}
-            onClick={() => trackGoal("click_phone")}
+            onClick={() => trackGoal("click_phone", { placement: "header" })}
           >
             <Phone size={16} aria-hidden="true" />
             {contacts.phoneLabel}
@@ -226,7 +228,7 @@ function App() {
             href={contacts.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackGoal("click_whatsapp")}
+            onClick={() => trackGoal("click_whatsapp", { placement: "header" })}
           >
             WhatsApp
           </a>
@@ -235,7 +237,7 @@ function App() {
             href={contacts.telegramHref}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackGoal("click_telegram")}
+            onClick={() => trackGoal("click_telegram", { placement: "header" })}
           >
             Telegram
           </a>
@@ -272,7 +274,7 @@ function App() {
             <h1 id="hero-title">{hero.title}</h1>
             <p className="hero__intro">{hero.subtitle}</p>
             <div className="hero__actions">
-              <WhatsApp className="button--light">
+              <WhatsApp className="button--light" placement={{ placement: "hero" }}>
                 Обсудить поездку в WhatsApp
               </WhatsApp>
               <a className="hero__explore" href="#trips">
@@ -291,6 +293,36 @@ function App() {
           ))}
         </div>
 
+        <div className="budget-preview wrap">
+          <div>
+            <p className="budget-preview__label">На день в горы · до 4 гостей</p>
+            <p><strong data-qa-atomic="amount">≈ 11 000–15 000 ₽</strong> за машину</p>
+          </div>
+          <p className="budget-preview__split">Если вас четверо — примерно <span data-qa-atomic="amount">2 750–3 750 ₽</span> с человека. Это расчёт, точную цену согласуем до поездки.</p>
+          <a className="text-link" href="#prices">Что входит <ArrowDown size={17} aria-hidden="true" /></a>
+        </div>
+
+        <section className="local-scenes section wrap" aria-labelledby="local-scenes-title">
+          <div className="local-scenes__photos">
+            <figure className="local-scenes__village">
+              <Photo image={localScenes.village} alt="Вид на зелёное ущелье через каменный проём Дзивгисской крепости" />
+              <figcaption>Каменные стены Дзивгиса</figcaption>
+            </figure>
+            <figure className="local-scenes__food">
+              <Photo image={localScenes.food} alt="Осетинские пироги на столе" />
+              <figcaption>На обед — попробовать осетинские пироги</figcaption>
+            </figure>
+          </div>
+          <div className="local-scenes__copy">
+            <h2 id="local-scenes-title">Заедем на пироги</h2>
+            <p>По дороге можно попробовать пироги с сыром, мясом или зеленью. А у Эльбруса спросить, почему на праздничном осетинском столе их традиционно три.</p>
+            <span className="local-scenes__note">Место для обеда обсудим. Питание оплачивается отдельно.</span>
+          </div>
+        </section>
+
+
+
+
         <section
           className="trips section wrap"
           id="trips"
@@ -299,55 +331,61 @@ function App() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Маршруты из Владикавказа</p>
-              <h2 id="trips-title">Куда поехать</h2>
+              <h2 id="trips-title">С чего начнём?</h2>
             </div>
             <p>{tripsIntro}</p>
           </div>
-          <div className="route-grid">
-            {trips.map((trip, index) => (
-              <article className="route-card" key={trip.title}>
-                <div className="route-card__photo">
-                  <Photo image={trip.image} alt={trip.imageAlt} />
-                  <span className="route-card__number">0{index + 1}</span>
-                  <span className="route-card__tag">{trip.note}</span>
-                </div>
-                <div className="route-card__content">
+          <article className="featured-route">
+            <div className="featured-route__photo">
+              <Photo image={trips[0].image} alt={trips[0].imageAlt} />
+              <span className="featured-route__tag">Для первого знакомства</span>
+            </div>
+            <div className="featured-route__copy">
+              <p className="eyebrow">Один день · три разных пейзажа</p>
+              <h3>Три ущелья</h3>
+              <p>{trips[0].text}</p>
+              <ol className="route-sequence" aria-label="Пример последовательности поездки">
+                <li><strong>Кармадон</strong><span>Дорога среди высоких скал</span></li>
+                <li><strong>Даргавс</strong><span>Некрополь и панорама долины</span></li>
+                <li><strong>Фиагдон</strong><span>Башни и Куртатинское ущелье</span></li>
+              </ol>
+              <p className="featured-route__note">Порядок и остановки уточним по погоде и вашему темпу.</p>
+              <WhatsApp className="button--green" placement={{ placement: "featured-route", route: "three-gorges" }} message="Эльбрус, здравствуйте! Впервые еду в Осетию, интересует маршрут «Три ущелья». Подскажите время выезда и стоимость.">Хочу увидеть три ущелья</WhatsApp>
+            </div>
+          </article>
+          <div className="route-choices-heading">
+            <h3>А можно по-другому</h3>
+            <span>Ещё 5 направлений</span>
+          </div>
+          <div className="route-choices">
+            {trips.slice(1).map((trip) => (
+              <article className={`route-choice route-choice--${trip.id}`} key={trip.id}>
+                <Photo image={trip.image} alt={trip.imageAlt} className="route-choice__photo" />
+                <div className="route-choice__copy">
+                  <p className="route-choice__format">{trip.id === "fiagdon" ? `Горы и башни · ${trip.format.toLowerCase()}` : trip.format}</p>
                   <h3>{trip.title}</h3>
-                  <p>{trip.text}</p>
-                  <div className="route-card__bottom">
-                    <span className="route-card__format">{trip.format}</span>
-                    <a
-                      className="route-card__cta"
-                      href={whatsappLink(
-                        `Эльбрус, здравствуйте! Интересует поездка: ${trip.title}. Подскажите, пожалуйста, маршрут, время выезда и стоимость.`,
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackGoal("click_whatsapp")}
-                    >
-                      Обсудить маршрут{" "}
-                      <ArrowUpRight size={18} aria-hidden="true" />
-                    </a>
-                  </div>
+                  <p className="route-choice__description">{trip.text}</p>
+                  <a className="route-choice__cta" href={whatsappLink(`Эльбрус, здравствуйте! Интересует поездка: ${trip.title}. Подскажите, пожалуйста, маршрут, время выезда и стоимость.`)} target="_blank" rel="noopener noreferrer" onClick={() => trackGoal("click_whatsapp", { placement: "route-list", route: trip.id })}>
+                    Обсудить поездку <ArrowUpRight size={17} aria-hidden="true" />
+                  </a>
                 </div>
               </article>
             ))}
           </div>
           <div className="route-custom">
             <p>
-              <strong>Уже знаете, куда хотите?</strong> Можно обсудить свой
-              маршрут, трансфер или поездку на несколько дней.
+              <strong>Пока не знаете, что выбрать?</strong> Напишите, сколько у вас дней. Эльбрус поможет с маршрутом. Трансфер и поездки на несколько дней тоже можно обсудить.
             </p>
             <a
               className="text-link"
               href={whatsappLink(
-                "Эльбрус, здравствуйте! Хочу обсудить свой маршрут по Осетии.",
+                "Эльбрус, здравствуйте! Хочу в Осетию, но пока не выбрал маршрут. Помогите, пожалуйста, спланировать поездку.",
               )}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackGoal("click_whatsapp")}
+              onClick={() => trackGoal("click_whatsapp", { placement: "custom-route" })}
             >
-              Предложить маршрут <ArrowUpRight size={18} aria-hidden="true" />
+              Помочь с выбором <ArrowUpRight size={18} aria-hidden="true" />
             </a>
           </div>
         </section>
@@ -367,7 +405,7 @@ function App() {
                 href={contacts.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackGoal("click_whatsapp")}
+                onClick={() => trackGoal("click_whatsapp", { placement: "budget" })}
               >
                 Узнать стоимость <ArrowUpRight size={18} aria-hidden="true" />
               </a>
@@ -393,27 +431,20 @@ function App() {
           </div>
         </section>
 
+
         <section
           className="about section wrap"
           id="about"
           aria-labelledby="about-title"
         >
-          <Photo
-            className="about__portrait"
-            image={about.portrait}
-            alt="Эльбрус — местный водитель и проводник"
-          />
-          <div className="about__copy">
-            <h2 id="about-title">{about.title}</h2>
-            {about.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <details className="road-video">
-              <summary>
-                <Play size={15} aria-hidden="true" />
-                Короткое видео горной дороги{" "}
-                <Plus size={16} aria-hidden="true" />
-              </summary>
+          <div className="about__guide">
+            <Photo className="about__portrait" image={about.portrait} alt="Эльбрус — местный водитель и проводник" />
+            <div className="about__copy">
+              <h2 id="about-title">{about.title}</h2>
+              {about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+          </div>
+          <figure className="road-video">
               <video
                 controls
                 playsInline
@@ -424,8 +455,8 @@ function App() {
                 <source src="./videos/ossetia-road.mp4" type="video/mp4" />
                 Ваш браузер не поддерживает видео.
               </video>
-            </details>
-          </div>
+              <figcaption>Короткое видео с горной дороги <span>Нажмите ▶, чтобы посмотреть</span></figcaption>
+          </figure>
         </section>
 
         <section
@@ -435,7 +466,6 @@ function App() {
         >
           <div className="section-heading">
             <div>
-              <p className="eyebrow">После поездки</p>
               <h2 id="reviews-title">Отзывы гостей</h2>
             </div>
           </div>
@@ -488,20 +518,20 @@ function App() {
               <a
                 className="contacts__phone"
                 href={contacts.phoneHref}
-                onClick={() => trackGoal("click_phone")}
+                onClick={() => trackGoal("click_phone", { placement: "contacts" })}
               >
                 <Phone size={24} aria-hidden="true" />
                 {contacts.phoneLabel}
               </a>
               <p className="contacts__intro">{contacts.text}</p>
               <div className="contact-buttons">
-                <WhatsApp className="button--light">WhatsApp</WhatsApp>
+                <WhatsApp className="button--light" placement={{ placement: "contacts" }}>WhatsApp</WhatsApp>
                 <a
                   className="button button--outline"
                   href={contacts.telegramHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackGoal("click_telegram")}
+                  onClick={() => trackGoal("click_telegram", { placement: "contacts" })}
                 >
                   Telegram <ArrowUpRight size={19} aria-hidden="true" />
                 </a>
@@ -548,6 +578,9 @@ function App() {
                     required
                   />
                 </label>
+                <details className="request-form__optional request-form__wide">
+                  <summary>Дата и пожелания <span>необязательно</span><Plus size={17} aria-hidden="true" /></summary>
+                  <div className="request-form__details">
                 <label>
                   Дата поездки
                   <input name="date" type="date" />
@@ -571,6 +604,8 @@ function App() {
                     placeholder="Места или пожелания к поездке"
                   />
                 </label>
+                  </div>
+                </details>
                 <button
                   className="button button--green request-form__wide"
                   type="submit"
@@ -621,12 +656,12 @@ function App() {
           href={contacts.whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackGoal("click_whatsapp")}
+          onClick={() => trackGoal("click_whatsapp", { placement: "mobile-bar" })}
         >
           <MessageCircle size={19} aria-hidden="true" />
           WhatsApp
         </a>
-        <a href={contacts.phoneHref} onClick={() => trackGoal("click_phone")}>
+        <a href={contacts.phoneHref} onClick={() => trackGoal("click_phone", { placement: "mobile-bar" })}>
           <Phone size={18} aria-hidden="true" />
           Позвонить
         </a>
