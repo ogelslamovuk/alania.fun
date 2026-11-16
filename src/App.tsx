@@ -309,8 +309,8 @@ function App() {
                 <div className="route-card__photo">
                   <Photo image={trip.image} alt={trip.imageAlt} />
                   <span className="route-card__number">0{index + 1}</span>
-                  {trip.illustration && (
-                    <span className="route-card__illustration">Иллюстрация</span>
+                  {trip.imageCaption && (
+                    <span className="route-card__caption">{trip.imageCaption}</span>
                   )}
                   <span className="route-card__tag">{trip.note}</span>
                 </div>
