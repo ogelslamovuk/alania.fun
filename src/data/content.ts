@@ -136,7 +136,7 @@ export const trips = [
 ] as const;
 export const localScenes = {
   food: image("ossetian-pies", 1200, 800),
-  village: image("dzivgis-fortress", 1200, 800),
+  beer: image("ossetian-beer", 960, 540),
 };
 export const prices = {
   title: "Сколько стоит поездка",
