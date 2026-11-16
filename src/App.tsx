@@ -83,10 +83,26 @@ function WhatsApp({
 function App() {
   const [ready, setReady] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileContactsHidden, setMobileContactsHidden] = useState(false);
   const [requestStatus, setRequestStatus] = useState<RequestStatus>("idle");
   const [requestMessage, setRequestMessage] = useState("");
   const sending = useRef(false);
   useEffect(() => setReady(true), []);
+  useEffect(() => {
+    const visibleSections = new Set<Element>();
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visibleSections.add(entry.target);
+        else visibleSections.delete(entry.target);
+      }
+      setMobileContactsHidden(visibleSections.size > 0);
+    });
+    for (const id of ["faq", "contacts"]) {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -190,9 +206,40 @@ function App() {
             Отзывы
           </a>
           <a className="nav__contact" href="#contacts" onClick={closeMenu}>
-            Обсудить поездку <ArrowUpRight size={16} aria-hidden="true" />
+            Контакты <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </nav>
+        <div
+          className="header-contactbar"
+          aria-label="Прямая связь с Эльбрусом"
+        >
+          <a
+            className="header-phone"
+            href={contacts.phoneHref}
+            onClick={() => trackGoal("click_phone")}
+          >
+            <Phone size={16} aria-hidden="true" />
+            {contacts.phoneLabel}
+          </a>
+          <a
+            className="header-messenger"
+            href={contacts.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackGoal("click_whatsapp")}
+          >
+            WhatsApp
+          </a>
+          <a
+            className="header-messenger"
+            href={contacts.telegramHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackGoal("click_telegram")}
+          >
+            Telegram
+          </a>
+        </div>
       </header>
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
@@ -439,25 +486,27 @@ function App() {
         >
           <div className="wrap contacts__layout">
             <div className="contacts__copy">
-              <p className="eyebrow">Связь с Эльбрусом</p>
+              <p className="eyebrow">Эльбрус · водитель и проводник</p>
               <h2 id="contacts-title">{contacts.title}</h2>
+              <a
+                className="contacts__phone"
+                href={contacts.phoneHref}
+                onClick={() => trackGoal("click_phone")}
+              >
+                <Phone size={24} aria-hidden="true" />
+                {contacts.phoneLabel}
+              </a>
               <p className="contacts__intro">{contacts.text}</p>
-              <WhatsApp className="button--light">Написать в WhatsApp</WhatsApp>
-              <div className="contact-links">
+              <div className="contact-buttons">
+                <WhatsApp className="button--light">WhatsApp</WhatsApp>
                 <a
+                  className="button button--outline"
                   href={contacts.telegramHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackGoal("click_telegram")}
                 >
-                  Telegram <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
-                <a
-                  href={contacts.phoneHref}
-                  onClick={() => trackGoal("click_phone")}
-                >
-                  <Phone size={15} aria-hidden="true" />
-                  {contacts.phoneLabel}
+                  Telegram <ArrowUpRight size={19} aria-hidden="true" />
                 </a>
               </div>
               <ol className="booking-steps">
@@ -470,7 +519,7 @@ function App() {
               </ol>
             </div>
             <div className="form-panel">
-              <h3>Заявка на поездку</h3>
+              <h3>Или оставьте заявку</h3>
               <p>
                 {leadEndpoint
                   ? "Оставьте контакт — Эльбрус свяжется с вами."
@@ -551,7 +600,7 @@ function App() {
         </section>
       </main>
       <noscript>
-        <style>{`.menu-toggle,.form-panel{display:none!important}.nav{display:flex!important;position:static!important;flex-wrap:wrap;background:transparent!important}.header{height:auto!important;min-height:82px;flex-wrap:wrap;padding-block:16px;gap:16px}.nav a{padding:6px 0!important}@media(max-width:700px){.nav{width:100%;gap:12px 22px!important}.nav a{font-size:15px}}`}</style>
+        <style>{`.menu-toggle,.form-panel{display:none!important}.nav{display:flex!important;position:static!important;flex-wrap:wrap;background:transparent!important}.header{height:auto!important;min-height:82px;flex-wrap:wrap;padding-block:16px;gap:16px}.nav a{padding:6px 0!important}@media(max-width:700px){.nav{width:100%;gap:12px 22px!important;flex-direction:row;order:3;border:0;box-shadow:none;padding:0}.nav a{font-size:15px}.mobile-contact{position:static!important;margin:0 16px 16px}.footer{padding-bottom:27px}}`}</style>
       </noscript>
       <footer className="footer wrap">
         <a className="brand__name" href="#main">
@@ -566,17 +615,25 @@ function App() {
           Фотографии и авторы <ArrowUpRight size={14} aria-hidden="true" />
         </a>
       </footer>
-      <a
+      <div
         className="mobile-contact"
-        href={contacts.whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackGoal("click_whatsapp")}
+        hidden={mobileContactsHidden}
+        aria-label="Связаться напрямую"
       >
-        <MessageCircle size={19} aria-hidden="true" />
-        <span>Обсудить поездку</span>
-        <ArrowUpRight size={18} aria-hidden="true" />
-      </a>
+        <a
+          href={contacts.whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackGoal("click_whatsapp")}
+        >
+          <MessageCircle size={19} aria-hidden="true" />
+          WhatsApp
+        </a>
+        <a href={contacts.phoneHref} onClick={() => trackGoal("click_phone")}>
+          <Phone size={18} aria-hidden="true" />
+          Позвонить
+        </a>
+      </div>
     </>
   );
 }
