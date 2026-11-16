@@ -22,7 +22,7 @@ npm run smoke -- http://localhost:4173/
 
 GitHub Pages публикует сайт через `.github/workflows/pages.yml` после изменений в `master`. Pull request в `master` проверяет сборку. Для повторной публикации запусти **Deploy GitHub Pages** из ветки `master`. Сверь SHA в Actions и запусти `npm run smoke` для проверки публичного адреса.
 
-Для отката создай PR с отменой проблемного коммита в `master`, дождись деплоя и снова запусти smoke. При полном откате восстановления сохрани триггер workflow на `master`, чтобы отмена опубликовалась. Предыдущий артефакт был собран из `5db270f063480d364776c695f8a0eb52079a0374` в [Actions run 26033342652](https://github.com/ogelslamovuk/co_elbrus/actions/runs/26033342652).
+Для отката создай PR с отменой проблемного коммита в `master`, дождись деплоя и снова запусти smoke. При полном откате восстановления сохрани триггер workflow на `master`, чтобы отмена опубликовалась. Предыдущий артефакт был собран из `5db270f063480d364776c695f8a0eb52079a0374` в [Actions run 26033342652](https://github.com/ogelslamovuk/alania.fun/actions/runs/26033342652).
 
 ## DNS и HTTPS
 
