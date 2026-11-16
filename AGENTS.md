@@ -1,5 +1,9 @@
 # AGENTS.md — project instructions for Codex: alania.fun landing
 
+## Approved redesign — 2026-11-16
+
+The owner authorized a full visual redesign and human Russian copy with lead generation as the primary goal. Use `DESIGN.md` and `CODEX_TASK.md` for the current design and acceptance criteria. This replaces the older Mountain Road Trip Notebook preservation direction below. Keep the current review objects verbatim. WhatsApp is primary, Telegram and phone remain available. Price ranges are approximate market orientation, with the exact price agreed directly. The car and Elbrus's accompaniment are included; food, tickets and cableways are extra. There is no mandatory prepayment. Local commands use Node 22.23.5 and npm 10.9.9 from `D:\soft\node-v22.23.5`.
+
 ## Project
 
 Repository: https://github.com/ogelslamovuk/alania.fun

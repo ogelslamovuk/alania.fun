@@ -1,13 +1,41 @@
-import { contacts, faq, hero, siteUrl } from "./data/content";
+import { contacts, faq, hero, siteUrl, trips } from "./data/content";
 
 export const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      name: "Осетия с Эльбрусом — alania.fun",
+      url: siteUrl,
+      inLanguage: "ru-RU",
+    },
+    {
+      "@type": "WebPage",
+      "@id": siteUrl,
+      url: siteUrl,
+      name: "Эльбрус — местный проводник по Северной Осетии",
+      isPartOf: { "@id": `${siteUrl}#website` },
+      mainEntity: { "@id": `${siteUrl}#service` },
+      primaryImageOfPage: `${siteUrl}images/og-ossetia.jpg`,
+      inLanguage: "ru-RU",
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}#elbrus`,
+      name: "Эльбрус",
+      description: "Местный водитель и проводник, родился и вырос в Верхнем Фиагдоне. Показывает горы, рассказывает о культуре и истории Северной Осетии.",
+      telephone: contacts.phoneHref.slice(4),
+      homeLocation: { "@type": "Place", name: "Верхний Фиагдон, Северная Осетия — Алания" },
+      knowsLanguage: "ru",
+      image: `${siteUrl}images/elbrus-portrait-1.jpg`,
+      url: `${siteUrl}#about`,
+    },
+    {
       "@type": "Service",
       "@id": `${siteUrl}#service`,
       "name": hero.title,
-      "description": "Поездки по Северной Осетии с местным водителем: Фиагдон, Даргавс, Кармадон, горы, трансферы и индивидуальные маршруты до 4 человек.",
+      "description": "Индивидуальные поездки по Северной Осетии до 4 гостей. В стоимость входят машина и сопровождение Эльбруса. Еда, входные билеты и канатные дороги оплачиваются отдельно.",
       "areaServed": [
         "Республика Северная Осетия — Алания",
         "Владикавказ",
@@ -23,12 +51,20 @@ export const structuredData = {
         "Трансферы",
         "Маршруты по Северной Осетии"
       ],
-      "provider": {
-        "@type": "Person",
-        "name": "Эльбрус",
-        "telephone": contacts.phoneHref.slice(4)
-      },
+      "provider": { "@id": `${siteUrl}#elbrus` },
       "url": siteUrl
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${siteUrl}#routes`,
+      name: "Примеры маршрутов по Осетии",
+      itemListElement: trips.map((trip, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: trip.title,
+        description: trip.text,
+        url: `${siteUrl}#trips`,
+      })),
     },
     {
       "@type": "FAQPage",

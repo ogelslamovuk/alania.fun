@@ -18,7 +18,7 @@ async function get(path, expectedType) {
 const html = await (await get(".", "text/html")).text();
 assert.ok(html.includes(`rel="canonical" href="${canonical}"`), "Missing canonical");
 assert.match(html, /<html lang="ru">/);
-assert.match(html, /<h1>/);
+assert.match(html, /<h1(?:\s|>)/);
 assert.match(html, /href="tel:\+\d+"/);
 assert.match(html, /href="https:\/\/wa\.me\/\d+/);
 
