@@ -24,7 +24,7 @@
 ## Новые направления
 
 - `three-gorges.jpg`, `.webp` — зимняя панорама Фиагдона и башен Куртатинского ущелья, одной из частей маршрута «Три ущелья». Автор Alex Svirkin. [Оригинал Fiagdon2.jpg](https://commons.wikimedia.org/wiki/File:Fiagdon2.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Уменьшено и перекодировано, метаданные удалены. Производные — та же лицензия.
-- `biragzang-thermal.svg`, `.jpg`, `.webp` — оригинальная иллюстрация бассейна для alania.fun. Это условное изображение, а не фотография комплекса. В карточке есть подпись «Иллюстрация». Чужие изображения бассейнов без подтверждённой лицензии не использованы.
+- `thermal-bathers.jpg`, `.webp` — люди в парящей воде, Blue Lagoon, Исландия. Автор Jeff Sheldon. [Страница снимка и подтверждение CC0 на StockSnap](https://stocksnap.io/photo/hotspring-water-CFEBB095D8), [оригинал на Unsplash](https://unsplash.com/photos/jTeQavJjBDs), [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Фото уменьшено до 1200×800 и кадрировано снизу через CDN Unsplash, сохранено локально в JPEG/WebP. Это атмосферный снимок термального отдыха, не фотография Бирагзанга; фактическая страна указана непосредственно на карточке и в alt. Старые `biragzang-thermal.svg`, `.jpg`, `.webp` — ранее использовавшаяся оригинальная иллюстрация, больше не отображаются на сайте.
 
 ## Шрифты
 

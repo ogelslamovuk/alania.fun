@@ -391,7 +391,7 @@ a:hover {
   color: #2e453a;
   font-size: 13px;
 }
-.route-card__illustration {
+.route-card__caption {
   position: absolute;
   top: 16px;
   right: 16px;
