@@ -305,7 +305,7 @@ function App() {
         <section className="local-scenes section wrap" aria-labelledby="local-scenes-title">
           <div className="local-scenes__photos">
             <figure className="local-scenes__beer">
-              <Photo image={localScenes.beer} alt="Традиционная резная чаша с осетинским пивом на столе" />
+              <Photo image={localScenes.beer} alt="Осетинское пиво: янтарный напиток с пеной в открытой деревянной чаше, вид сверху" />
               <figcaption>Осетинское пиво</figcaption>
             </figure>
             <figure className="local-scenes__food">
