@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="water" x2="1" y2="1"><stop stop-color="#6fd2d9"/><stop offset="1" stop-color="#238f9e"/></linearGradient>
+    <pattern id="ripples" width="150" height="90" patternUnits="userSpaceOnUse"><path d="M-20 44 Q18 20 55 44 T130 44 T205 44" fill="none" stroke="#d7f8f0" stroke-opacity=".38" stroke-width="4"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#e9dec9"/>
+  <path d="M0 700L1200 520V800H0Z" fill="#d8c5aa"/>
+  <g stroke="#cbb99e" stroke-width="2" opacity=".6"><path d="M0 120H1200M0 280H1200M0 440H1200M0 600H1200M160 0V800M380 0V800M600 0V800M820 0V800M1040 0V800"/></g>
+  <rect x="112" y="80" width="980" height="640" rx="100" fill="#c4b092" opacity=".45"/>
+  <rect x="102" y="62" width="980" height="640" rx="100" fill="#fffdf3"/>
+  <rect x="126" y="86" width="932" height="592" rx="78" fill="url(#water)"/>
+  <rect x="126" y="86" width="932" height="592" rx="78" fill="url(#ripples)"/>
+  <path d="M193 150V613M240 150V613M287 150V613" fill="none" stroke="#def5e9" stroke-width="4" opacity=".35"/>
+  <g fill="none" stroke="#f9fff8" stroke-linecap="round" stroke-width="10" opacity=".7">
+    <path d="M654 460C595 394 700 354 649 286S686 196 653 147"/>
+    <path d="M784 486C726 419 834 378 781 307S818 217 784 168"/>
+    <path d="M914 460C854 393 961 354 909 286S946 197 913 147"/>
+  </g>
+  <g fill="none" stroke="#203f48" stroke-width="14" stroke-linecap="round">
+    <path d="M363 622V740Q363 766 390 766"/>
+    <path d="M461 622V740Q461 766 488 766"/>
+    <path d="M363 660H461M363 701H461" stroke-width="10"/>
+  </g>
+</svg>
