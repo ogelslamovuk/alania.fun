@@ -6,7 +6,7 @@ export const structuredData = {
     {
       "@type": "WebSite",
       "@id": `${siteUrl}#website`,
-      name: "Осетия с Эльбрусом — alania.fun",
+      name: "alania.fun — поездки по Северной Осетии",
       url: siteUrl,
       inLanguage: "ru-RU",
     },
@@ -14,7 +14,7 @@ export const structuredData = {
       "@type": "WebPage",
       "@id": siteUrl,
       url: siteUrl,
-      name: "Эльбрус — местный проводник по Северной Осетии",
+      name: "Поездки по Северной Осетии из Владикавказа",
       isPartOf: { "@id": `${siteUrl}#website` },
       mainEntity: { "@id": `${siteUrl}#service` },
       primaryImageOfPage: `${siteUrl}images/og-ossetia.jpg`,
