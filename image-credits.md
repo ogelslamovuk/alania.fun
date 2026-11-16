@@ -8,7 +8,8 @@
 ## Видео и новые производные
 
 - `public/videos/ossetia-road.mp4` — короткий сжатый фрагмент `IMG_1968.MOV`, предоставленного владельцем для сайта 16 ноября 2026 года. Звук и метаданные удалены. `public/images/ossetia-road-poster.webp` — кадр из этого же видео. Исходные MOV остаются локально.
-- `public/images/og-ossetia.jpg` — кадрирование фотографии реки Фиагдон, указанной ниже. Автор Alexxx1979, CC BY-SA 4.0, размер и сжатие изменены.
+- `public/images/ossetia-panorama.jpg`, `.webp`, `.avif` и варианты `-960` — долина Уруха из Лезгора, Дигория. Автор Vyacheslav Argenberg, [источник](https://commons.wikimedia.org/wiki/File:Лезгор,_Осетия,_Долина_Урух,_Ossetia.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Уменьшены и перекодированы, метаданные удалены. `public/images/og-ossetia.jpg` — кадрирование этого же снимка.
+- `public/images/midagrabin-waterfalls.jpg` и `.webp` — Большой Зейгалан, Мидаграбинские водопады. Автор Trip.with.taste, [источник](https://commons.wikimedia.org/wiki/File:Большой_Зейгалан.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Уменьшены и перекодированы, метаданные удалены. Производные распространяются на той же лицензии.
 
 ## Шрифты
 
@@ -19,7 +20,7 @@
 
 Пейзажи Северной Осетии:
 
-WebP, AVIF и уменьшенные JPEG сделаны из тех же фотографий. В разделе Архонского перевала показана Даргавская долина с горной дороги, с соответствующей подписью.
+WebP, AVIF и уменьшенные JPEG сделаны из тех же фотографий. Подписи на сайте указывают фактическое место съёмки.
 
 - `public/images/fiagdon-river.jpg` — North Ossetia-Alania. Kurtat Valley. Fiagdon River. Автор: Alexxx1979. Источник: https://commons.wikimedia.org/wiki/File:North_Ossetia%E2%80%93Alania._Kurtat_Valley._Fiagdon_River_PA160654_2575.jpg. Лицензия: CC BY-SA 4.0.
 - `public/images/verkhny-fiagdon.jpg` — Verkhny Fiagdon, Northern Osetia, Russia. Автор: Акутагава. Источник: https://commons.wikimedia.org/wiki/File:Verkhny_Fiagdon_2010.JPG. Лицензия: CC BY-SA 3.0.

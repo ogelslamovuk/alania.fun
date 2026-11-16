@@ -3,21 +3,27 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  Check,
+  MapPin,
   Menu,
   MessageCircle,
   Phone,
+  Play,
   Plus,
   X,
 } from "lucide-react";
 import {
   about,
+  bookingSteps,
   contacts,
   faq,
+  faqTitle,
   formSuccess,
   hero,
   prices,
   reviews,
   trips,
+  tripsIntro,
   whatsappLink,
 } from "./data/content";
 import { trackGoal } from "./analytics";
@@ -27,7 +33,6 @@ const leadTimeoutMs = 12_000;
 type RequestStatus = "idle" | "sending" | "success" | "error";
 const formValue = (data: FormData, key: string) =>
   String(data.get(key) ?? "").trim();
-const suggestedTrips = trips;
 
 function Photo({
   image,
@@ -53,7 +58,7 @@ function Photo({
   );
 }
 function WhatsApp({
-  children = "Написать Эльбрусу",
+  children = "Написать в WhatsApp",
   className = "",
   message,
 }: {
@@ -70,18 +75,19 @@ function WhatsApp({
       onClick={() => trackGoal("click_whatsapp")}
     >
       <span>{children}</span>
-      <ArrowUpRight size={20} aria-hidden="true" />
+      <ArrowUpRight size={19} aria-hidden="true" />
     </a>
   );
 }
+
 function App() {
   const [ready, setReady] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedTrip, setSelectedTrip] = useState(0);
   const [requestStatus, setRequestStatus] = useState<RequestStatus>("idle");
   const [requestMessage, setRequestMessage] = useState("");
   const sending = useRef(false);
   useEffect(() => setReady(true), []);
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (sending.current) return;
@@ -146,17 +152,18 @@ function App() {
     }
   };
   const closeMenu = () => setMenuOpen(false);
+
   return (
     <>
       <a className="skip-link" href="#main">
         Перейти к содержанию
       </a>
       <header className="header wrap">
-        <a className="brand" href="#main" aria-label="Эльбрус — в начало">
+        <a className="brand" href="#main" aria-label="alania.fun — в начало">
           <span className="brand__name">
-            Эльбрус<span className="brand__dot">.</span>
+            alania<span>.fun</span>
           </span>
-          <span className="brand__caption">Ваш человек в Осетии</span>
+          <span className="brand__caption">Северная Осетия</span>
         </a>
         <button
           type="button"
@@ -173,285 +180,141 @@ function App() {
           id="main-nav"
           aria-label="Главная навигация"
         >
-          <a href="#about" onClick={closeMenu}>
-            Об Эльбрусе
-          </a>
           <a href="#trips" onClick={closeMenu}>
-            Куда поедем
+            Маршруты
           </a>
           <a href="#prices" onClick={closeMenu}>
             Стоимость
           </a>
-          <a href="#contacts" onClick={closeMenu}>
-            Связаться <ArrowUpRight size={15} aria-hidden="true" />
+          <a href="#reviews" onClick={closeMenu}>
+            Отзывы
+          </a>
+          <a className="nav__contact" href="#contacts" onClick={closeMenu}>
+            Обсудить поездку <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </nav>
       </header>
       <main id="main">
-        <section className="hero wrap" aria-labelledby="hero-title">
-          <div className="hero__copy">
-            <p className="eyebrow">
-              <span className="location-dot" /> Северная Осетия · Из
-              Владикавказа
-            </p>
-            <h1 id="hero-title">
-              {hero.titleLines.map((line, index) => (
-                <span
-                  className={index === 0 ? "hero__place" : "hero__line"}
-                  key={line}
-                >
-                  {line}
-                  {index < hero.titleLines.length - 1 ? " " : ""}
-                </span>
-              ))}
-            </h1>
-            <p className="hero__intro">{hero.subtitle}</p>
-            <WhatsApp className="button--green">
-              Обсудить поездку в WhatsApp
-            </WhatsApp>
-            <p className="hero__note">
-              Вы, ваши близкие и местный проводник.
-              <br />
-              До 4 гостей · Свой маршрут · Без обязательной предоплаты
-            </p>
-          </div>
-          <figure className="hero__landscape">
-            <picture>
-              <source
-                media="(max-width: 700px)"
-                type="image/avif"
-                srcSet={hero.mobileAvif}
-              />
-              <source type="image/avif" srcSet={hero.avif} />
-              <source
-                media="(max-width: 700px)"
-                type="image/webp"
-                srcSet={hero.mobileWebp}
-              />
-              <source type="image/webp" srcSet={hero.image.webp} />
-              <img
-                src={hero.image.jpg}
-                width={hero.image.width}
-                height={hero.image.height}
-                alt="Горная река Фиагдон и склоны Северной Осетии"
-                fetchPriority="high"
-              />
-            </picture>
-            <figcaption>
-              <span>Места, к которым хочется вернуться.</span>
-              <span>Куртатинское ущелье</span>
-            </figcaption>
-            <a
-              className="hero__down"
-              href="#about"
-              aria-label="Познакомиться с Эльбрусом"
-            >
-              <ArrowDown size={22} />
-            </a>
-          </figure>
-        </section>
-        <section
-          className="about section wrap"
-          id="about"
-          aria-labelledby="about-title"
-        >
-          <figure className="about__portrait">
-            <Photo
-              image={about.portraits[0]}
-              alt="Эльбрус приветствует гостей в горах Осетии"
+        <section className="hero" aria-labelledby="hero-title">
+          <picture className="hero__photo">
+            <source
+              media="(max-width: 700px)"
+              type="image/avif"
+              srcSet={hero.mobileAvif}
             />
-            <figcaption>
-              <span>Эльбрус</span>
-              <span>Родился и вырос в Верхнем Фиагдоне</span>
-            </figcaption>
-          </figure>
-          <div className="about__copy">
-            <p className="eyebrow">Местный проводник. Хороший собеседник.</p>
-            <h2 id="about-title">
-              Знакомьтесь,
-              <br />
-              Эльбрус.
-              <br />
-              <span className="muted-heading">Здесь он дома.</span>
-            </h2>
-            {about.paragraphs.map((p) => (
-              <p className="body-large" key={p}>
-                {p}
-              </p>
-            ))}
-            <a className="text-link" href="#contacts">
-              Познакомиться и договориться{" "}
-              <ArrowUpRight size={19} aria-hidden="true" />
-            </a>
+            <source type="image/avif" srcSet={hero.avif} />
+            <source
+              media="(max-width: 700px)"
+              type="image/webp"
+              srcSet={hero.mobileWebp}
+            />
+            <source type="image/webp" srcSet={hero.image.webp} />
+            <img
+              src={hero.image.jpg}
+              width={hero.image.width}
+              height={hero.image.height}
+              alt={hero.imageAlt}
+              fetchPriority="high"
+            />
+          </picture>
+          <div className="hero__content">
+            <p className="hero__location">
+              <MapPin size={16} aria-hidden="true" />
+              {hero.caption}
+            </p>
+            <h1 id="hero-title">{hero.title}</h1>
+            <p className="hero__intro">{hero.subtitle}</p>
+            <div className="hero__actions">
+              <WhatsApp className="button--light">
+                Обсудить поездку в WhatsApp
+              </WhatsApp>
+              <a className="hero__explore" href="#trips">
+                Выбрать маршрут <ArrowDown size={18} aria-hidden="true" />
+              </a>
+            </div>
           </div>
+          <span className="hero__photo-note">Долина Уруха · Дигория</span>
         </section>
+        <div className="trip-facts wrap">
+          {hero.facts.map((fact) => (
+            <span key={fact}>
+              <Check size={17} aria-hidden="true" />
+              {fact}
+            </span>
+          ))}
+        </div>
+
         <section
-          className="trips section"
+          className="trips section wrap"
           id="trips"
           aria-labelledby="trips-title"
         >
-          <div className="wrap">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Куда поедем</p>
-                <h2 id="trips-title">
-                  У каждого —<br />
-                  своя Осетия.
-                </h2>
-              </div>
-              <p>
-                Первый раз в горах или уже знаете, куда хочется? Возьмём за
-                основу один из маршрутов или придумаем ваш.
-              </p>
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Маршруты из Владикавказа</p>
+              <h2 id="trips-title">Куда поехать</h2>
             </div>
-            <div className="route-layout">
-              <div
-                className="route-view"
-                id="route-view"
-                aria-live="polite"
-                aria-atomic="true"
-              >
-                <Photo
-                  image={suggestedTrips[selectedTrip].image}
-                  alt={suggestedTrips[selectedTrip].imageAlt}
-                />
-                <div className="route-view__caption">
-                  <h3>{suggestedTrips[selectedTrip].title}</h3>
-                  <p>{suggestedTrips[selectedTrip].text}</p>
-                  <WhatsApp
-                    className="button--cream"
-                    message={`Эльбрус, здравствуйте! Интересует поездка: ${suggestedTrips[selectedTrip].title}. Подскажите, пожалуйста, маршрут и стоимость.`}
-                  >
-                    Хочу сюда
-                  </WhatsApp>
+            <p>{tripsIntro}</p>
+          </div>
+          <div className="route-grid">
+            {trips.map((trip, index) => (
+              <article className="route-card" key={trip.title}>
+                <div className="route-card__photo">
+                  <Photo image={trip.image} alt={trip.imageAlt} />
+                  <span className="route-card__number">0{index + 1}</span>
+                  <span className="route-card__tag">{trip.note}</span>
                 </div>
-              </div>
-              <div className="route-list" aria-label="Выбрать направление">
-                {suggestedTrips.map((trip, index) => (
-                  <button
-                    type="button"
-                    key={trip.title}
-                    className={`route-option${selectedTrip === index ? " route-option--active" : ""}`}
-                    aria-pressed={selectedTrip === index}
-                    aria-controls="route-view"
-                    onClick={() => {
-                      setSelectedTrip(index);
-                      if (window.matchMedia("(max-width: 620px)").matches) {
-                        document.getElementById("route-view")?.scrollIntoView({
-                          behavior: window.matchMedia(
-                            "(prefers-reduced-motion: reduce)",
-                          ).matches
-                            ? "instant"
-                            : "smooth",
-                          block: "start",
-                        });
-                      }
-                    }}
-                  >
-                    <span>
-                      <span className="route-option__meta">{trip.note}</span>
-                      <span className="route-option__name">{trip.title}</span>
-                      <span className="route-option__format">
-                        {trip.format}
-                      </span>
-                    </span>
-                    <ArrowUpRight size={25} aria-hidden="true" />
-                  </button>
-                ))}
-                <div className="route-custom">
-                  <h3>А можно по-своему?</h3>
-                  <p>
-                    Конечно. Рассвет, семейный день, красивые места для фото или
-                    поездка на несколько дней — расскажите, чего хочется.
-                  </p>
-                  <a
-                    href={whatsappLink(
-                      "Эльбрус, здравствуйте! Хочу обсудить свой маршрут по Осетии.",
-                    )}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-link"
-                    onClick={() => trackGoal("click_whatsapp")}
-                  >
-                    Собрать свой маршрут{" "}
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <noscript>
-              <div className="nojs-routes">
-                {trips.map((trip) => (
-                  <article key={trip.title}>
-                    <h3>{trip.title}</h3>
-                    <p>{trip.text}</p>
-                    <WhatsApp
-                      className="button--cream"
-                      message={`Эльбрус, здравствуйте! Интересует поездка: ${trip.title}. Подскажите, пожалуйста, маршрут и стоимость.`}
+                <div className="route-card__content">
+                  <h3>{trip.title}</h3>
+                  <p>{trip.text}</p>
+                  <div className="route-card__bottom">
+                    <span className="route-card__format">{trip.format}</span>
+                    <a
+                      className="route-card__cta"
+                      href={whatsappLink(
+                        `Эльбрус, здравствуйте! Интересует поездка: ${trip.title}. Подскажите, пожалуйста, маршрут, время выезда и стоимость.`,
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackGoal("click_whatsapp")}
                     >
-                      Обсудить маршрут
-                    </WhatsApp>
-                  </article>
-                ))}
-              </div>
-            </noscript>
+                      Обсудить маршрут{" "}
+                      <ArrowUpRight size={18} aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-        </section>
-        <section className="road section wrap" aria-labelledby="road-title">
-          <div className="road__copy">
-            <p className="eyebrow">А между остановками — дорога</p>
-            <h2 id="road-title">
-              Смотреть в окно.
-              <br />
-              Слушать истории.
-              <br />
-              <span className="muted-heading">В своём ритме.</span>
-            </h2>
-            <p className="body-large">
-              В дороге особенно ценишь человека рядом: внимательного, вежливого,
-              с чувством юмора и любовью к этим горам.
+          <div className="route-custom">
+            <p>
+              <strong>Уже знаете, куда хотите?</strong> Можно обсудить свой
+              маршрут, трансфер или поездку на несколько дней.
             </p>
-            <div className="road__facts">
-              <div>
-                <h3>В своей компании</h3>
-                <p>
-                  До 4 гостей, чистая машина и Эльбрус за рулём. Остановки и
-                  темп обсудите вместе.
-                </p>
-              </div>
-              <div>
-                <h3>От встречи до возвращения</h3>
-                <p>
-                  Можно начать у отеля, на вокзале или в аэропорту. Нужен только
-                  трансфер? Об этом тоже можно договориться.
-                </p>
-              </div>
-            </div>
-          </div>
-          <figure className="road__video">
-            <video
-              controls
-              playsInline
-              preload="none"
-              poster="./images/ossetia-road-poster.webp"
-              aria-label="Короткое видео горной дороги в Осетии"
+            <a
+              className="text-link"
+              href={whatsappLink(
+                "Эльбрус, здравствуйте! Хочу обсудить свой маршрут по Осетии.",
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackGoal("click_whatsapp")}
             >
-              <source src="./videos/ossetia-road.mp4" type="video/mp4" />
-              Ваш браузер не поддерживает видео.
-            </video>
-            <figcaption>Немного дороги — из настоящей поездки.</figcaption>
-          </figure>
+              Предложить маршрут <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          </div>
         </section>
+
         <section
           className="prices section"
           id="prices"
           aria-labelledby="prices-title"
         >
           <div className="wrap prices__layout">
-            <div>
-              <p className="eyebrow">О стоимости — открыто</p>
+            <div className="prices__intro">
+              <p className="eyebrow">Бюджет поездки</p>
               <h2 id="prices-title">{prices.title}</h2>
-              <p className="body-large">{prices.text}</p>
+              <p>{prices.text}</p>
               <a
                 className="text-link"
                 href={contacts.whatsappHref}
@@ -459,49 +322,79 @@ function App() {
                 rel="noopener noreferrer"
                 onClick={() => trackGoal("click_whatsapp")}
               >
-                Узнать стоимость моей поездки{" "}
-                <ArrowUpRight size={19} aria-hidden="true" />
+                Узнать стоимость <ArrowUpRight size={18} aria-hidden="true" />
               </a>
             </div>
             <div className="price-sheet">
-              <p className="price-sheet__label">
-                Примерный бюджет на компанию до 4 гостей
-              </p>
               <dl>
                 {prices.items.map(([label, value]) => (
                   <div key={label}>
                     <dt>{label}</dt>
-                    <dd data-qa-atomic>{value}</dd>
+                    <dd data-qa-atomic="amount">{value}</dd>
                   </div>
                 ))}
               </dl>
-              <p>{prices.note}</p>
-              <span className="price-sheet__foot">
-                Точную сумму согласуете до поездки.
-              </span>
+              <div className="price-sheet__notes">
+                <p>
+                  <Check size={17} aria-hidden="true" />
+                  {prices.included}
+                </p>
+                <p>{prices.extra}</p>
+                <p>{prices.note}</p>
+              </div>
             </div>
           </div>
         </section>
+
+        <section
+          className="about section wrap"
+          id="about"
+          aria-labelledby="about-title"
+        >
+          <Photo
+            className="about__portrait"
+            image={about.portrait}
+            alt="Эльбрус — местный водитель и проводник"
+          />
+          <div className="about__copy">
+            <h2 id="about-title">{about.title}</h2>
+            {about.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <details className="road-video">
+              <summary>
+                <Play size={15} aria-hidden="true" />
+                Короткое видео горной дороги{" "}
+                <Plus size={16} aria-hidden="true" />
+              </summary>
+              <video
+                controls
+                playsInline
+                preload="none"
+                poster="./images/ossetia-road-poster.webp"
+                aria-label="Короткое видео горной дороги в Осетии"
+              >
+                <source src="./videos/ossetia-road.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает видео.
+              </video>
+            </details>
+          </div>
+        </section>
+
         <section
           className="reviews section wrap"
+          id="reviews"
           aria-labelledby="reviews-title"
         >
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Слово гостям</p>
-              <h2 id="reviews-title">
-                О дороге.
-                <br />И о человеке.
-              </h2>
+              <p className="eyebrow">После поездки</p>
+              <h2 id="reviews-title">Отзывы гостей</h2>
             </div>
-            <p>Впечатления тех, кто уже ездил с Эльбрусом.</p>
           </div>
           <div className="review-list">
             {reviews.map((review) => (
               <figure className="review" key={review.name}>
-                <span className="review__mark" aria-hidden="true">
-                  “
-                </span>
                 <blockquote>
                   <p>{review.text}</p>
                 </blockquote>
@@ -513,27 +406,29 @@ function App() {
             ))}
           </div>
         </section>
+
         <section
           className="faq section wrap"
           id="faq"
           aria-labelledby="faq-title"
         >
           <div>
-            <p className="eyebrow">Пара практических вопросов</p>
-            <h2 id="faq-title">Перед дорогой.</h2>
+            <p className="eyebrow">Перед выездом</p>
+            <h2 id="faq-title">{faqTitle}</h2>
           </div>
           <div className="faq__list">
             {faq.map((item) => (
               <details key={item.question}>
                 <summary>
                   {item.question}
-                  <Plus size={20} aria-hidden="true" />
+                  <Plus size={19} aria-hidden="true" />
                 </summary>
                 <p>{item.answer}</p>
               </details>
             ))}
           </div>
         </section>
+
         <section
           className="contacts section"
           id="contacts"
@@ -541,16 +436,10 @@ function App() {
         >
           <div className="wrap contacts__layout">
             <div className="contacts__copy">
-              <p className="eyebrow">Большая поездка начинается с разговора</p>
-              <h2 id="contacts-title">
-                Ну что,
-                <br />в Осетию?
-              </h2>
-              <p className="body-large">
-                Напишите Эльбрусу, когда приезжаете, сколько вас и что хочется
-                увидеть. Всё остальное обсудите вместе.
-              </p>
-              <WhatsApp className="button--cream">Написать в WhatsApp</WhatsApp>
+              <p className="eyebrow">Связь с Эльбрусом</p>
+              <h2 id="contacts-title">{contacts.title}</h2>
+              <p className="contacts__intro">{contacts.text}</p>
+              <WhatsApp className="button--light">Написать в WhatsApp</WhatsApp>
               <div className="contact-links">
                 <a
                   href={contacts.telegramHref}
@@ -568,18 +457,21 @@ function App() {
                   {contacts.phoneLabel}
                 </a>
               </div>
-              <p className="contacts__note">
-                Можно написать без готового маршрута.
-                <br />
-                Достаточно желания приехать.
-              </p>
+              <ol className="booking-steps">
+                {bookingSteps.map((step) => (
+                  <li key={step.title}>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </li>
+                ))}
+              </ol>
             </div>
             <div className="form-panel">
-              <h3>Или оставьте пару слов здесь</h3>
+              <h3>Заявка на поездку</h3>
               <p>
                 {leadEndpoint
-                  ? "Эльбрус получит заявку и свяжется с вами."
-                  : "Подготовим сообщение — вам останется отправить его в WhatsApp."}
+                  ? "Оставьте контакт — Эльбрус свяжется с вами."
+                  : "Подготовим сообщение для WhatsApp. Отправить его нужно будет самостоятельно."}
               </p>
               <form
                 className="request-form"
@@ -608,7 +500,7 @@ function App() {
                   />
                 </label>
                 <label>
-                  Когда планируете поездку
+                  Дата поездки
                   <input name="date" type="date" />
                 </label>
                 <label>
@@ -627,11 +519,11 @@ function App() {
                     name="message"
                     rows={3}
                     maxLength={1500}
-                    placeholder="Можно пока не знать — это тоже нормально"
+                    placeholder="Места или пожелания к поездке"
                   />
                 </label>
                 <button
-                  className="button button--cream request-form__wide"
+                  className="button button--green request-form__wide"
                   type="submit"
                   disabled={!ready || requestStatus === "sending"}
                 >
@@ -656,27 +548,19 @@ function App() {
         </section>
       </main>
       <noscript>
-        <style>{`.menu-toggle,.route-view,.route-list,.request-form{display:none!important}.nojs-routes{display:grid;grid-template-columns:1fr 1fr;gap:40px}.nojs-routes h3{font-size:30px}.nojs-routes p{margin:15px 0 20px}.form-panel{display:none}@media(max-width:620px){.header{height:auto;min-height:82px;flex-wrap:wrap;padding-block:20px;gap:14px}.nav{display:flex;position:static;flex-direction:row;flex-wrap:wrap;width:100%;gap:10px 22px;border:0;box-shadow:none;padding:0}.nav a{font-size:15px;min-height:35px}.nojs-routes{grid-template-columns:1fr}}`}</style>
+        <style>{`.menu-toggle,.form-panel{display:none!important}.nav{display:flex!important;position:static!important;flex-wrap:wrap;background:transparent!important}.header{height:auto!important;min-height:82px;flex-wrap:wrap;padding-block:16px;gap:16px}.nav a{padding:6px 0!important}@media(max-width:700px){.nav{width:100%;gap:12px 22px!important}.nav a{font-size:15px}}`}</style>
       </noscript>
       <footer className="footer wrap">
         <a className="brand__name" href="#main">
-          Эльбрус<span className="brand__dot">.</span>
+          alania<span>.fun</span>
         </a>
-        <p>
-          Индивидуальные поездки по Северной Осетии.
-          <br />
-          Из Владикавказа — навстречу горам.
-          <br />
-          <a
-            href="https://github.com/ogelslamovuk/alania.fun/blob/master/image-credits.md"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Фотографии и авторы
-          </a>
-        </p>
-        <a href="#main" className="text-link">
-          В начало <ArrowUpRight size={18} aria-hidden="true" />
+        <p>Индивидуальные поездки по Северной Осетии</p>
+        <a
+          href="https://github.com/ogelslamovuk/alania.fun/blob/master/image-credits.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Фотографии и авторы <ArrowUpRight size={14} aria-hidden="true" />
         </a>
       </footer>
       <a
@@ -687,7 +571,7 @@ function App() {
         onClick={() => trackGoal("click_whatsapp")}
       >
         <MessageCircle size={19} aria-hidden="true" />
-        <span>Написать Эльбрусу</span>
+        <span>Обсудить поездку</span>
         <ArrowUpRight size={18} aria-hidden="true" />
       </a>
     </>
