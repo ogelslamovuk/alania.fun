@@ -8,8 +8,18 @@
 ## Видео и новые производные
 
 - `public/videos/ossetia-road.mp4` — короткий сжатый фрагмент `IMG_1968.MOV`, предоставленного владельцем для сайта 16 ноября 2026 года. Звук и метаданные удалены. `public/images/ossetia-road-poster.webp` — кадр из этого же видео. Исходные MOV остаются локально.
-- `public/images/ossetia-panorama.jpg`, `.webp`, `.avif` и варианты `-960` — долина Уруха из Лезгора, Дигория. Автор Vyacheslav Argenberg, [источник](https://commons.wikimedia.org/wiki/File:Лезгор,_Осетия,_Долина_Урух,_Ossetia.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Уменьшены и перекодированы, метаданные удалены. `public/images/og-ossetia.jpg` — кадрирование этого же снимка.
+- `public/images/ossetia-panorama.jpg`, `.webp`, `.avif` и варианты `-960` — долина Уруха из Лезгора, Дигория. Автор Vyacheslav Argenberg, [источник](https://commons.wikimedia.org/wiki/File:Лезгор,_Осетия,_Долина_Урух,_Ossetia.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Уменьшены и перекодированы, метаданные удалены.
 - `public/images/midagrabin-waterfalls.jpg` и `.webp` — Большой Зейгалан, Мидаграбинские водопады. Автор Trip.with.taste, [источник](https://commons.wikimedia.org/wiki/File:Большой_Зейгалан.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Уменьшены и перекодированы, метаданные удалены. Производные распространяются на той же лицензии.
+
+## Светлая подборка, 16 ноября 2026
+
+Все перечисленные ниже снимки уменьшены и перекодированы, метаданные удалены. Кадрирование в карточках выполняется CSS. Производные распространяются по [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), как и оригиналы.
+
+- `ossetia-summer.jpg`, `.webp`, `.avif`, варианты `-960` — летние горы Дигории со стороны «Порога неба». Автор Miraclle17. [Источник](https://commons.wikimedia.org/wiki/File:Вид_на_Дигорские_горы_со_стороны_курорта_Порог_неба.jpg). `og-ossetia.jpg` — кадрирование того же снимка для социального превью.
+- `fiagdon-summer.jpg`, `.webp` — вид на Фиагдон из Цмити. Автор Trip.with.taste. [Источник](https://commons.wikimedia.org/wiki/File:Вид_на_Фиагдон_из_Древнего_города_Цмити.jpg).
+- `dargavs-sunny.jpg`, `.webp` — Даргавская долина с горными вершинами. Автор Rost.galis. [Источник](https://commons.wikimedia.org/wiki/File:Архитектурный_комплекс_Даргавс_12.jpg).
+- `midagrabin-summer.jpg`, `.webp` — Зейгалан, Мидаграбинские водопады. Автор Юрочкин Роман. [Источник](https://commons.wikimedia.org/wiki/File:Мидаграбинские_водопады.jpg).
+- `digoria-karaugom.jpg`, `.webp` — Караугомский ледник, Дигория. Автор Alexander Novikov. [Источник](https://commons.wikimedia.org/wiki/File:Karaugom-001.jpg). Фото региона не означает, что автомобильный маршрут проходит прямо к леднику.
 
 ## Шрифты
 
