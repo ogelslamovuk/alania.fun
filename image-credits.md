@@ -32,6 +32,13 @@
 
 ## Фото направлений
 
+### Актуальные снимки Мамисона и Кармадона
+
+- `mamison-skiers.jpg`, `.webp` — лыжники на кресельном подъёмнике курорта Мамисон. Фото: Кавказ.РФ. [Страница галереи и атрибуция](https://kavkaz.travel/resorts/12/mamison), [исходный кадр](https://kavkaz.travel/_next/image?q=85&url=http%3A%2F%2Ftds%3A8082%2F8bc527c3-b950-4ea0-abe2-c1d38914cb9d%2F-%2Fextract%2F0x403x1024x683%2F&w=1920). Уменьшен до 960×640, сохранён локально в JPEG/WebP, метаданные удалены. Цвета и содержание не менялись.
+- `bodrov-mural.jpg`, `.webp` — мурал Сергею Бодрову и памятные таблички возле тоннеля в Кармадонском ущелье. Фото: Ксения Селезнёва / ДОМОСТРОЙНН.РУ. [Исходная публикация с подписью фотографа](https://www.domostroynn.ru/novosti/rynok-nedvizhimosti/nizhegorodskiy-zhurnalist-posetil-mesto-gibeli-sergeya-bodrova-pod-lavinoy-v-osetii), [исходный кадр](https://it.cdnstroy.ru/tne58d2rtudsh_1sjwi39/nizhegorodskiy-zhurnalist-posetil-mesto-gibeli-sergeya-bodrova-pod-lavinoy-v-osetii-foto-1.jpeg). Уменьшен с 1200×770 до 960×616, сохранён локально в JPEG/WebP, метаданные удалены. Кадрирование в карточке — CSS, с акцентом на мурал справа.
+
+Оба снимка добавлены по прямому указанию владельца от 16 ноября 2026 года использовать найденные в интернете фотографии с указанием источников. Авторы и активные ссылки также указаны непосредственно в карточках. Открытая лицензия этих двух снимков не заявлена и не подтверждена; указание источника не объявляется лицензией. Ниже перечисленные `mamison-valley` и `karmadon-walls` заменены и больше не отображаются в этих карточках.
+
 - `mamison-valley.jpg`, `.webp` — долина у Тибских минеральных источников, Мамисонское направление. Автор Rost.galis, [оригинал](https://commons.wikimedia.org/wiki/File:Окрестности_источника.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Это вид долины по пути, не фотография новых подъёмников курорта.
 - `tsey-cableway.jpg`, `.webp` — канатная дорога в Цее. Автор Denis Dolgopolov, [оригинал](https://commons.wikimedia.org/wiki/File:Канатная_дорога_в_Цее.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 - `karmadon-walls.jpg`, `.webp` — скальные стены Кармадонского ущелья. Автор Александр Байдуков, [оригинал](https://commons.wikimedia.org/wiki/File:Karmadon._The_walls_of_the_gorge.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Снимок показывает окружение поездки к месту памяти, не сам мемориал.

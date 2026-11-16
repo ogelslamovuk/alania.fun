@@ -364,6 +364,9 @@ function App() {
                   <p className="route-choice__format">{trip.id === "fiagdon" ? `Горы и башни · ${trip.format.toLowerCase()}` : trip.format}</p>
                   <h3>{trip.title}</h3>
                   <p className="route-choice__description">{trip.text}</p>
+                  {"photoCredit" in trip && (
+                    <p className="route-choice__credit">Фото: <a href={trip.photoCredit.url} target="_blank" rel="noopener noreferrer">{trip.photoCredit.label}</a></p>
+                  )}
                   <a className="route-choice__cta" href={whatsappLink(`Эльбрус, здравствуйте! Интересует поездка: ${trip.title}. Подскажите, пожалуйста, маршрут, время выезда и стоимость.`)} target="_blank" rel="noopener noreferrer" onClick={() => trackGoal("click_whatsapp", { placement: "route-list", route: trip.id })}>
                     Обсудить поездку <ArrowUpRight size={17} aria-hidden="true" />
                   </a>
