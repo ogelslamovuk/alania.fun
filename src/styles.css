@@ -9,6 +9,8 @@
   --muted: #5b6861;
   --line: #dce2dc;
   --paper: #f3f5ef;
+  --warm: #98603e;
+  --sand: #f7f1e7;
 }
 * {
   box-sizing: border-box;
@@ -345,83 +347,6 @@ a:hover {
   font-size: 18px;
   color: var(--muted);
 }
-.route-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 38px 28px;
-}
-.route-card {
-  min-width: 0;
-}
-.route-card__photo {
-  position: relative;
-  aspect-ratio: 1.8;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #e6ebe4;
-}
-.route-card__photo picture,
-.route-card__photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.route-card__photo img {
-  transition: transform 0.4s;
-}
-.route-card:hover .route-card__photo img {
-  transform: scale(1.025);
-}
-.route-card__number {
-  position: absolute;
-  left: 16px;
-  top: 14px;
-  color: white;
-  font-size: 17px;
-  text-shadow: 0 1px 8px #000;
-}
-.route-card__tag {
-  position: absolute;
-  left: 16px;
-  bottom: 14px;
-  padding: 5px 10px;
-  background: rgba(255, 255, 255, 0.94);
-  border-radius: 4px;
-  color: #2e453a;
-  font-size: 13px;
-}
-.route-card__content {
-  padding-top: 19px;
-}
-.route-card__content > p {
-  margin-top: 11px;
-  font-size: 18px;
-  color: var(--muted);
-  max-width: 520px;
-}
-.route-card__bottom {
-  border-top: 1px solid var(--line);
-  margin-top: 20px;
-  padding-top: 14px;
-  display: flex;
-  gap: 14px;
-  justify-content: space-between;
-  align-items: center;
-}
-.route-card__format {
-  font-size: 15px;
-  color: #5b6861;
-}
-.route-card__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  min-height: 30px;
-}
 .route-custom {
   margin-top: 38px;
   padding: 24px 0 0;
@@ -510,60 +435,6 @@ a:hover {
   align-items: center;
   gap: 8px;
   font-weight: 600;
-}
-.about {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding-block: 62px;
-}
-.about__portrait {
-  display: block;
-  width: 132px;
-  height: 176px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.about__portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.about__copy {
-  max-width: 830px;
-}
-.about h2 {
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-.about__copy > p {
-  display: inline;
-  color: var(--muted);
-  font-size: 18px;
-}
-.about__copy > p + p::before {
-  content: " ";
-}
-.road-video {
-  margin-top: 15px;
-  font-size: 15px;
-}
-.road-video summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  min-height: 32px;
-  list-style: none;
-  font-weight: 600;
-}
-.road-video video {
-  width: 210px;
-  max-height: 355px;
-  margin-top: 15px;
-  border-radius: 6px;
-  background: #13291f;
 }
 .reviews {
   border-top: 1px solid var(--line);
@@ -915,23 +786,6 @@ summary::-webkit-details-marker {
     font-size: 16px;
     max-width: 48%;
   }
-  .route-grid {
-    gap: 32px 22px;
-  }
-  .route-card__photo {
-    aspect-ratio: 1.45;
-  }
-  .route-card h3 {
-    font-size: 25px;
-  }
-  .route-card__content > p {
-    font-size: 17px;
-  }
-  .route-card__bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 7px;
-  }
   .route-custom {
     align-items: flex-start;
     gap: 20px;
@@ -960,16 +814,6 @@ summary::-webkit-details-marker {
   }
   .price-sheet dt {
     font-size: 19px;
-  }
-  .about {
-    gap: 27px;
-  }
-  .about__portrait {
-    width: 120px;
-    height: 160px;
-  }
-  .about__copy > p {
-    font-size: 17px;
   }
   .review-list {
     grid-template-columns: 1fr;
@@ -1195,37 +1039,6 @@ summary::-webkit-details-marker {
     width: auto;
     font-size: 17px;
   }
-  .route-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .route-card__photo {
-    aspect-ratio: 1.5;
-  }
-  .route-card__content {
-    padding-top: 15px;
-  }
-  .route-card h3 {
-    font-size: 28px;
-  }
-  .route-card__content > p {
-    font-size: 17px;
-    margin-top: 9px;
-  }
-  .route-card__bottom {
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    padding-top: 10px;
-    margin-top: 16px;
-  }
-  .route-card__format {
-    font-size: 14px;
-  }
-  .route-card__cta {
-    font-size: 15px;
-    gap: 3px;
-  }
   .route-custom {
     margin-top: 30px;
     padding-top: 22px;
@@ -1264,35 +1077,6 @@ summary::-webkit-details-marker {
   .price-sheet__notes svg {
     margin-top: 3px;
     flex-shrink: 0;
-  }
-  .about {
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding-block: 39px;
-  }
-  .about__portrait {
-    width: 90px;
-    height: 120px;
-  }
-  .about__copy {
-    flex: 1;
-    min-width: 200px;
-  }
-  .about h2 {
-    font-size: 26px;
-    margin-bottom: 12px;
-  }
-  .about__copy > p {
-    font-size: 16px;
-  }
-  .road-video summary {
-    font-size: 14px;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-  .road-video summary svg:last-child {
-    display: none;
   }
   .review-list {
     gap: 25px;
@@ -1420,18 +1204,180 @@ summary::-webkit-details-marker {
     gap: 9px;
     padding-inline: 15px;
   }
-  .about {
-    gap: 18px;
-  }
-  .about__copy {
-    min-width: 180px;
-  }
-  .route-card__format {
-    font-size: 13px;
-  }
-  .route-card__cta {
-    font-size: 14px;
-  }
+}
+.budget-preview {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr auto;
+  align-items: center;
+  gap: 36px;
+  padding: 27px 0;
+  border-bottom: 1px solid var(--line);
+}
+.budget-preview__label { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+.budget-preview strong { font-size: 27px; font-weight: 600; letter-spacing: -.025em; white-space: nowrap; }
+.budget-preview__split { max-width: 360px; font-size: 15px; color: var(--muted); }
+.budget-preview__split span { white-space: nowrap; }
+.featured-route { display: grid; grid-template-columns: 1.15fr 1fr; background: var(--paper); border-radius: 12px; overflow: hidden; }
+.featured-route__photo { position: relative; min-height: 490px; }
+.featured-route__photo picture, .featured-route__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.featured-route__photo picture { position: absolute; inset: 0; }
+.featured-route__tag { position: absolute; top: 22px; left: 22px; padding: 7px 12px; border-radius: 4px; font-size: 14px; font-weight: 600; background: #fff8ec; color: #6c412b; }
+.featured-route__copy { padding: 34px 36px; }
+.featured-route__copy .eyebrow { font-size: 13px; margin-bottom: 9px; color: var(--warm); }
+.featured-route h3 { font-size: 40px; margin-bottom: 14px; }
+.featured-route__copy > p:not(.eyebrow) { font-size: 17px; color: var(--muted); }
+.route-sequence { margin: 24px 0 17px; padding: 0; list-style: none; counter-reset: stops; }
+.route-sequence li { position: relative; padding: 0 0 17px 34px; counter-increment: stops; }
+.route-sequence li:last-child { padding-bottom: 0; }
+.route-sequence li::before { content: counter(stops); position: absolute; top: 0; left: 0; width: 23px; height: 23px; border: 1px solid #acb9a3; border-radius: 50%; text-align: center; font-size: 13px; line-height: 21px; background: var(--paper); z-index: 1; }
+.route-sequence li:not(:last-child)::after { content: ""; position: absolute; top: 23px; bottom: 0; left: 11px; border-left: 1px solid #c4cebb; }
+.route-sequence strong, .route-sequence span { display: block; font-size: 16px; line-height: 1.3; }
+.route-sequence strong { font-weight: 600; }
+.route-sequence span { margin-top: 2px; color: var(--muted); font-size: 14px; }
+.featured-route__copy > .featured-route__note { font-size: 14px !important; margin-bottom: 20px; }
+.featured-route .button { font-size: 17px; gap: 16px; }
+.route-choices-heading { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; margin: 44px 0 24px; }
+.route-choices-heading h3 { font-size: 28px; }
+.route-choices-heading > span { color: var(--muted); font-size: 15px; }
+.route-choices { display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; }
+.route-choice { display: grid; grid-template-columns: 148px 1fr; align-items: start; gap: 21px; padding: 24px 0; border-top: 1px solid var(--line); min-width: 0; }
+.route-choice__photo { display: block; height: 180px; border-radius: 7px; overflow: hidden; }
+.route-choice__photo img { width: 100%; height: 100%; object-fit: cover; }
+.route-choice__format { font-size: 13px; line-height: 1.25; color: var(--muted); margin-bottom: 6px; }
+.route-choice h3 { font-size: 24px; line-height: 1.1; }
+.route-choice__description { font-size: 15px; line-height: 1.4; color: var(--muted); margin-top: 9px; }
+.route-choice__cta { display: inline-flex; align-items: center; gap: 5px; min-height: 38px; margin-top: 8px; font-size: 15px; font-weight: 600; text-decoration: none; }
+.route-choice--biragzang { grid-column: 1/-1; grid-template-columns: 31% 1fr; gap: 27px; padding-bottom: 0; }
+.route-choice--biragzang .route-choice__photo { height: 160px; }
+.route-choice--biragzang .route-choice__copy { max-width: 620px; }
+.route-custom { margin-top: 28px; }
+.local-scenes { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; padding-block: 48px 24px; }
+.local-scenes__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.local-scenes__photos figure { min-width: 0; }
+.local-scenes__photos picture { display: block; overflow: hidden; border-radius: 8px; }
+.local-scenes__photos img { width: 100%; height: 100%; object-fit: cover; }
+.local-scenes__village picture { height: 215px; }
+.local-scenes__food { padding-top: 30px; }
+.local-scenes__food picture { height: 180px; }
+.local-scenes figcaption { font-size: 13px; color: var(--muted); line-height: 1.3; margin-top: 9px; }
+.local-scenes__copy .eyebrow { color: var(--warm); }
+.local-scenes__copy h2 { font-size: 36px; max-width: 390px; }
+.local-scenes__copy > p:not(.eyebrow) { font-size: 17px; color: var(--muted); margin-top: 17px; }
+.local-scenes__note { display: block; margin-top: 19px; font-size: 14px; color: var(--warm); line-height: 1.4; }
+.about { display: grid; grid-template-columns: 1fr 360px; align-items: center; gap: 60px; border-top: 1px solid var(--line); }
+.about__guide { display: flex; gap: 28px; align-items: center; }
+.about__portrait { display: block; width: 120px; height: 152px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
+.about__portrait img { width: 100%; height: 100%; object-fit: cover; transform: scale(2.2); transform-origin: 50% 64%; }
+.about__copy { max-width: 540px; }
+.about__copy > p { display: block; }
+.about__copy > p + p { margin-top: 10px; }
+.about__copy > p + p::before { content: none; }
+.road-video { margin: 0; display: flex; align-items: center; gap: 21px; }
+.road-video video { width: 150px; height: 224px; object-fit: cover; border-radius: 7px; margin: 0; flex-shrink: 0; }
+.road-video figcaption { font-size: 17px; font-weight: 600; line-height: 1.25; }
+.road-video figcaption span { display: block; color: var(--muted); font-weight: 400; font-size: 14px; margin-top: 9px; }
+.request-form__optional { border-block: 1px solid var(--line); }
+.request-form__optional summary { display: flex; gap: 7px; align-items: center; cursor: pointer; padding-block: 13px; font-size: 16px; list-style: none; }
+.request-form__optional summary > span { color: var(--muted); font-size: 14px; }
+.request-form__optional summary > svg { margin-left: auto; }
+.request-form__optional[open] summary > svg { transform: rotate(45deg); }
+.request-form__details { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; padding: 4px 0 20px; }
+@media(max-width:1100px) {
+  .budget-preview { gap: 22px; grid-template-columns: 1fr 1fr; }
+  .budget-preview > a { grid-column: 2; margin-top: -12px; }
+  .featured-route { grid-template-columns: 1fr 1fr; }
+  .featured-route__copy { padding: 28px; }
+  .route-choice { grid-template-columns: 118px 1fr; gap: 18px; }
+  .route-choice__photo { height: 165px; }
+  .local-scenes { gap: 36px; }
+  .local-scenes__village picture { height: 210px; }
+  .local-scenes__food { padding-top: 30px; }
+  .about { grid-template-columns: 1fr 285px; gap: 30px; }
+  .about__guide { gap: 21px; }
+  .road-video { gap: 16px; }
+}
+@media(max-width:850px) {
+  .budget-preview strong { font-size: 25px; }
+  .featured-route__copy { padding: 26px; }
+  .featured-route h3 { font-size: 34px; }
+  .featured-route__copy > p:not(.eyebrow) { font-size: 16px; }
+  .featured-route .button { padding-inline: 15px; font-size: 15px; gap: 9px; }
+  .route-choices { column-gap: 25px; }
+  .route-choice { grid-template-columns: 95px 1fr; gap: 15px; }
+  .route-choice h3 { font-size: 22px; }
+  .route-choice__photo { height: 145px; }
+  .route-choice__description { font-size: 14px; }
+  .route-choice--biragzang { grid-template-columns: 31% 1fr; }
+  .local-scenes { grid-template-columns: 1.1fr 1fr; gap: 30px; }
+  .local-scenes__photos { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .local-scenes__village picture { height: 210px; }
+  .local-scenes__food { padding-top: 30px; }
+  .local-scenes__food picture { height: 175px; }
+  .local-scenes__copy { max-width: 580px; }
+  .local-scenes__copy h2 { max-width: none; font-size: 31px; }
+  .local-scenes__copy > p:not(.eyebrow) { margin-top: 15px; }
+  .about { grid-template-columns: 1fr 240px; gap: 28px; }
+  .about__guide { align-items: flex-start; }
+  .about__portrait { width: 88px; height: 112px; }
+  .about h2 { font-size: 26px; }
+  .about__copy > p { font-size: 16px; }
+  .road-video { gap: 14px; }
+  .road-video video { width: 130px; height: 205px; }
+  .road-video figcaption { font-size: 16px; }
+}
+@media(max-width:700px) {
+  .budget-preview { gap: 13px; padding-block: 23px; grid-template-columns: 1fr auto; }
+  .budget-preview__label { font-size: 13px; }
+  .budget-preview strong { font-size: 25px; }
+  .budget-preview > div > p:last-child { font-size: 15px; }
+  .budget-preview__split { grid-column: 1/-1; grid-row: 2; max-width: none; font-size: 14px; }
+  .budget-preview > a { grid-column: 2; grid-row: 1; font-size: 14px; margin-top: 0; gap: 4px; align-self: end; }
+  .featured-route { grid-template-columns: 1fr; }
+  .featured-route__photo { min-height: 0; height: 215px; }
+  .featured-route__tag { left: 16px; top: 15px; font-size: 13px; }
+  .featured-route__copy { padding: 24px 22px; }
+  .featured-route h3 { font-size: 36px; }
+  .featured-route .button { font-size: 16px; width: 100%; justify-content: space-between; min-height: 50px; }
+  .route-sequence { margin-block: 21px 17px; }
+  .route-sequence li { padding-bottom: 15px; }
+  .route-choices-heading { margin-block: 33px 17px; gap: 10px; }
+  .route-choices-heading h3 { font-size: 25px; }
+  .route-choices-heading > span { font-size: 13px; }
+  .route-choices { grid-template-columns: 1fr; }
+  .route-choice, .route-choice--biragzang { grid-template-columns: 108px 1fr; gap: 17px; padding-block: 20px; }
+  .route-choice__photo, .route-choice--biragzang .route-choice__photo { height: 145px; }
+  .route-choice h3 { font-size: 23px; }
+  .route-choice__description { font-size: 14px; margin-top: 7px; }
+  .route-choice__format { font-size: 12px; }
+  .route-choice__cta { font-size: 14px; margin-top: 6px; min-height: 34px; }
+  .route-choice--biragzang { padding-bottom: 0; }
+  .route-custom { margin-top: 26px; padding-top: 21px; }
+  .local-scenes { gap: 23px; grid-template-columns: 1fr; padding-block: 34px 0; }
+  .local-scenes__photos { gap: 12px; grid-template-columns: 1.1fr 1fr; }
+  .local-scenes__village picture { height: 170px; }
+  .local-scenes__food { padding-top: 22px; }
+  .local-scenes__food picture { height: 148px; }
+  .local-scenes figcaption { font-size: 12px; }
+  .local-scenes__copy h2 { font-size: 30px; }
+  .local-scenes__copy > p:not(.eyebrow) { font-size: 16px; margin-top: 14px; }
+  .local-scenes__note { margin-top: 15px; }
+  .about { display: grid; grid-template-columns: 1fr; padding-block: 36px; gap: 27px; }
+  .about__guide { gap: 20px; }
+  .about__copy { min-width: 0; }
+  .about__portrait { width: 85px; height: 114px; }
+  .road-video { border-top: 1px solid var(--line); padding-top: 24px; gap: 24px; }
+  .road-video video { width: 145px; height: 216px; }
+  .road-video figcaption { font-size: 20px; max-width: 155px; }
+  .road-video figcaption span { font-size: 14px; }
+}
+@media(max-width:390px) {
+  .budget-preview { column-gap: 9px; }
+  .budget-preview strong { font-size: 23px; }
+  .budget-preview > a { font-size: 13px; }
+  .budget-preview > div > p:last-child { font-size: 13px; }
+  .route-choice, .route-choice--biragzang { grid-template-columns: 94px 1fr; gap: 14px; }
+  .route-choice h3 { font-size: 22px; }
+  .local-scenes__village picture { height: 160px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
