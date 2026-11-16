@@ -304,9 +304,9 @@ function App() {
 
         <section className="local-scenes section wrap" aria-labelledby="local-scenes-title">
           <div className="local-scenes__photos">
-            <figure className="local-scenes__village">
-              <Photo image={localScenes.village} alt="Вид на зелёное ущелье через каменный проём Дзивгисской крепости" />
-              <figcaption>Каменные стены Дзивгиса</figcaption>
+            <figure className="local-scenes__beer">
+              <Photo image={localScenes.beer} alt="Осетинское пиво с пеной в деревянной чаше на столе" />
+              <figcaption>Осетинское пиво в деревянной чаше <span className="local-scenes__credit">Фото: <a href="https://sputnik-ossetia.ru/20230119/osetinskoe-pivo-napitok-nartov-doshedshiy-do-nashikh-dney-21004277.html" target="_blank" rel="noopener noreferrer">Наталья Айриян / Sputnik</a></span></figcaption>
             </figure>
             <figure className="local-scenes__food">
               <Photo image={localScenes.food} alt="Осетинские пироги на столе" />
@@ -315,7 +315,7 @@ function App() {
           </div>
           <div className="local-scenes__copy">
             <h2 id="local-scenes-title">Заедем на пироги</h2>
-            <p>По дороге можно попробовать пироги с сыром, мясом или зеленью. А у Эльбруса спросить, почему на праздничном осетинском столе их традиционно три.</p>
+            <p>По дороге можно попробовать пироги с сыром, мясом или зеленью и осетинское пиво. А у Эльбруса спросить, почему на праздничном осетинском столе их традиционно три.</p>
           </div>
         </section>
 

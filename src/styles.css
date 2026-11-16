@@ -1259,10 +1259,11 @@ summary::-webkit-details-marker {
 .local-scenes__photos figure { min-width: 0; }
 .local-scenes__photos picture { display: block; overflow: hidden; border-radius: 8px; }
 .local-scenes__photos img { width: 100%; height: 100%; object-fit: cover; }
-.local-scenes__village picture { height: 215px; }
+.local-scenes__beer picture { height: 215px; }
 .local-scenes__food { padding-top: 30px; }
 .local-scenes__food picture { height: 180px; }
 .local-scenes figcaption { font-size: 13px; color: var(--muted); line-height: 1.3; margin-top: 9px; }
+.local-scenes__credit { display: block; font-size: 11px; margin-top: 5px; }
 .local-scenes__copy .eyebrow { color: var(--warm); }
 .local-scenes__copy h2 { font-size: 36px; max-width: 390px; }
 .local-scenes__copy > p:not(.eyebrow) { font-size: 17px; color: var(--muted); margin-top: 17px; }
@@ -1292,7 +1293,7 @@ summary::-webkit-details-marker {
   .route-choice { grid-template-columns: 118px 1fr; gap: 18px; }
   .route-choice__photo { height: 165px; }
   .local-scenes { gap: 36px; }
-  .local-scenes__village picture { height: 210px; }
+  .local-scenes__beer picture { height: 210px; }
   .local-scenes__food { padding-top: 30px; }
   .about { grid-template-columns: 1fr 285px; gap: 30px; }
   .about__guide { gap: 21px; }
@@ -1312,7 +1313,7 @@ summary::-webkit-details-marker {
   .route-choice--biragzang { grid-template-columns: 31% 1fr; }
   .local-scenes { grid-template-columns: 1.1fr 1fr; gap: 30px; }
   .local-scenes__photos { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .local-scenes__village picture { height: 210px; }
+  .local-scenes__beer picture { height: 210px; }
   .local-scenes__food { padding-top: 30px; }
   .local-scenes__food picture { height: 175px; }
   .local-scenes__copy { max-width: 580px; }
@@ -1356,7 +1357,7 @@ summary::-webkit-details-marker {
   .route-custom { margin-top: 26px; padding-top: 21px; }
   .local-scenes { gap: 23px; grid-template-columns: 1fr; padding-block: 34px 0; }
   .local-scenes__photos { gap: 12px; grid-template-columns: 1.1fr 1fr; }
-  .local-scenes__village picture { height: 170px; }
+  .local-scenes__beer picture { height: 170px; }
   .local-scenes__food { padding-top: 22px; }
   .local-scenes__food picture { height: 148px; }
   .local-scenes figcaption { font-size: 12px; }
@@ -1378,7 +1379,7 @@ summary::-webkit-details-marker {
   .budget-preview > div > p:last-child { font-size: 13px; }
   .route-choice, .route-choice--biragzang { grid-template-columns: 94px 1fr; gap: 14px; }
   .route-choice h3 { font-size: 22px; }
-  .local-scenes__village picture { height: 160px; }
+  .local-scenes__beer picture { height: 160px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
