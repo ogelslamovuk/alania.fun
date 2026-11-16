@@ -1263,7 +1263,6 @@ summary::-webkit-details-marker {
 .local-scenes__copy .eyebrow { color: var(--warm); }
 .local-scenes__copy h2 { font-size: 36px; max-width: 390px; }
 .local-scenes__copy > p:not(.eyebrow) { font-size: 17px; color: var(--muted); margin-top: 17px; }
-.local-scenes__note { display: block; margin-top: 19px; font-size: 14px; color: var(--warm); line-height: 1.4; }
 .about { display: grid; grid-template-columns: 1fr 360px; align-items: center; gap: 60px; border-top: 1px solid var(--line); }
 .about__guide { display: flex; gap: 28px; align-items: center; }
 .about__portrait { display: block; width: 120px; height: 152px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
@@ -1360,7 +1359,6 @@ summary::-webkit-details-marker {
   .local-scenes figcaption { font-size: 12px; }
   .local-scenes__copy h2 { font-size: 30px; }
   .local-scenes__copy > p:not(.eyebrow) { font-size: 16px; margin-top: 14px; }
-  .local-scenes__note { margin-top: 15px; }
   .about { display: grid; grid-template-columns: 1fr; padding-block: 36px; gap: 27px; }
   .about__guide { gap: 20px; }
   .about__copy { min-width: 0; }
