@@ -233,7 +233,7 @@ function App() {
               </a>
             </div>
           </div>
-          <span className="hero__photo-note">Долина Уруха · Дигория</span>
+          <span className="hero__photo-note">Летняя Дигория</span>
         </section>
         <div className="trip-facts wrap">
           {hero.facts.map((fact) => (
