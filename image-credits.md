@@ -19,7 +19,8 @@
 - `fiagdon-summer.jpg`, `.webp` — вид на Фиагдон из Цмити. Автор Trip.with.taste. [Источник](https://commons.wikimedia.org/wiki/File:Вид_на_Фиагдон_из_Древнего_города_Цмити.jpg).
 - `dargavs-sunny.jpg`, `.webp` — Даргавская долина с горными вершинами. Автор Rost.galis. [Источник](https://commons.wikimedia.org/wiki/File:Архитектурный_комплекс_Даргавс_12.jpg).
 - `midagrabin-summer.jpg`, `.webp` — Зейгалан, Мидаграбинские водопады. Автор Юрочкин Роман. [Источник](https://commons.wikimedia.org/wiki/File:Мидаграбинские_водопады.jpg).
-- `digoria-karaugom.jpg`, `.webp` — Караугомский ледник, Дигория. Автор Alexander Novikov. [Источник](https://commons.wikimedia.org/wiki/File:Karaugom-001.jpg). Фото региона не означает, что автомобильный маршрут проходит прямо к леднику.
+- `digoria-karaugom.jpg`, `.webp` — ранее использовавшееся фото Караугомского ледника, Дигория. Автор Alexander Novikov. [Источник](https://commons.wikimedia.org/wiki/File:Karaugom-001.jpg). Больше не отображается в карточке маршрута.
+- `digoria-sunrise.jpg`, `.webp` — рассвет с вершины горы Кубус, национальный парк «Алания», Дигория. Автор DeingeL. [Источник](https://commons.wikimedia.org/wiki/File:Рассвет_с_вершины_горы_Кубус.jpg). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Получена версия Wikimedia 960×600 и создан WebP; кадрирование в карточке выполняется CSS, без изменения цветов или генеративной обработки. Производные — CC BY-SA 4.0. Фото показывает вид на долину; подъём на вершину не заявлен частью автомобильной поездки.
 
 ## Новые направления
 
