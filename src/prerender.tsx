@@ -8,8 +8,10 @@ export function prerender(template: string) {
 
   return template
     .replace("<!-- hero-preload -->", () =>
-      `<link rel="preload" as="image" href="${hero.mobileAvif}" type="image/avif" media="(max-width: 860px)" fetchpriority="high">
-    <link rel="preload" as="image" href="${hero.avif}" type="image/avif" media="(width > 860px)" fetchpriority="high">`)
+      `<link rel="preload" as="font" href="./fonts/cormorant-garamond-cyrillic.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="./fonts/source-sans-3-cyrillic.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="${hero.mobileAvif}" type="image/avif" media="(max-width: 700px)" fetchpriority="high">
+    <link rel="preload" as="image" href="${hero.avif}" type="image/avif" media="(width > 700px)" fetchpriority="high">`)
     .replace("<!-- structured-data -->", () => `<script type="application/ld+json">${schema}</script>`)
     .replace("<!-- landing -->", () => renderToString(<App />));
 }
